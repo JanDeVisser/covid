@@ -1,0 +1,226 @@
+[
+    {
+        "name": "California",
+        "population": 39512223
+    },
+    {
+        "name": "Texas",
+        "population": 28995881
+    },
+    {
+        "name": "Florida",
+        "population": 21477737
+    },
+    {
+        "name": "New York",
+        "population": 19453561
+    },
+    {
+        "name": "Pennsylvania",
+        "population": 12801989
+    },
+    {
+        "name": "Illinois",
+        "population": 12671821
+    },
+    {
+        "name": "Ohio",
+        "population": 11689100
+    },
+    {
+        "name": "Georgia",
+        "population": 10617423
+    },
+    {
+        "name": "North Carolina",
+        "population": 10488084
+    },
+    {
+        "name": "Michigan",
+        "population": 9986857
+    },
+    {
+        "name": "New Jersey",
+        "population": 8882190
+    },
+    {
+        "name": "Virginia",
+        "population": 8535519
+    },
+    {
+        "name": "Washington",
+        "population": 7614893
+    },
+    {
+        "name": "Arizona",
+        "population": 7278717
+    },
+    {
+        "name": "Massachusetts",
+        "population": 6949503
+    },
+    {
+        "name": "Tennessee",
+        "population": 6833174
+    },
+    {
+        "name": "Indiana",
+        "population": 6732219
+    },
+    {
+        "name": "Missouri",
+        "population": 6137428
+    },
+    {
+        "name": "Maryland",
+        "population": 6045680
+    },
+    {
+        "name": "Wisconsin",
+        "population": 5822434
+    },
+    {
+        "name": "Colorado",
+        "population": 5758736
+    },
+    {
+        "name": "Minnesota",
+        "population": 5639632
+    },
+    {
+        "name": "South Carolina",
+        "population": 5148714
+    },
+    {
+        "name": "Alabama",
+        "population": 4903185
+    },
+    {
+        "name": "Louisiana",
+        "population": 4648794
+    },
+    {
+        "name": "Kentucky",
+        "population": 4467673
+    },
+    {
+        "name": "Oregon",
+        "population": 4217737
+    },
+    {
+        "name": "Oklahoma",
+        "population": 3956971
+    },
+    {
+        "name": "Connecticut",
+        "population": 3565287
+    },
+    {
+        "name": "Utah",
+        "population": 3205958
+    },
+    {
+        "name": "Puerto Rico",
+        "population": 3193694
+    },
+    {
+        "name": "Iowa",
+        "population": 3155070
+    },
+    {
+        "name": "Nevada",
+        "population": 3080156
+    },
+    {
+        "name": "Arkansas",
+        "population": 3017825
+    },
+    {
+        "name": "Mississippi",
+        "population": 2976149
+    },
+    {
+        "name": "Kansas",
+        "population": 2913314
+    },
+    {
+        "name": "New Mexico",
+        "population": 2096829
+    },
+    {
+        "name": "Nebraska",
+        "population": 1934408
+    },
+    {
+        "name": "West Virginia",
+        "population": 1792147
+    },
+    {
+        "name": "Idaho",
+        "population": 1787065
+    },
+    {
+        "name": "Hawaii",
+        "population": 1415872
+    },
+    {
+        "name": "New Hampshire",
+        "population": 1359711
+    },
+    {
+        "name": "Maine",
+        "population": 1344212
+    },
+    {
+        "name": "Montana",
+        "population": 1068778
+    },
+    {
+        "name": "Rhode Island",
+        "population": 1059361
+    },
+    {
+        "name": "Delaware",
+        "population": 973764
+    },
+    {
+        "name": "South Dakota",
+        "population": 884659
+    },
+    {
+        "name": "North Dakota",
+        "population": 762062
+    },
+    {
+        "name": "Alaska",
+        "population": 731545
+    },
+    {
+        "name": "District of Columbia",
+        "population": 705749
+    },
+    {
+        "name": "Vermont",
+        "population": 623989
+    },
+    {
+        "name": "Wyoming",
+        "population": 578759
+    },
+    {
+        "name": "Guam",
+        "population": 165718
+    },
+    {
+        "name": "U.S. Virgin Islands",
+        "population": 104914
+    },
+    {
+        "name": "American Samoa",
+        "population": 55641
+    },
+    {
+        "name": "Northern Mariana Islands",
+        "population": 55194
+    }
+]

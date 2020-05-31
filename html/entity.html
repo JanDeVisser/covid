@@ -1,0 +1,206 @@
+{{define "Title"}}{{with $kind := .Kind}}{{$kind.Basename | title}}{{end}} - {{label .Entity}}{{end}}
+
+{{define "Edit"}}
+    <div class="container">
+        {{template "Header" .}}
+        <div class="table-responsive">
+            <form name="entityedit" action="{{.URL}}" method="post">
+                <input type="hidden" name="mode" id="mode" value="{{.Mode}}"/>
+                <input type="hidden" name="id" id="id" value="{{.Ident}}"/>
+                {{if and .Kind.ParentKind .ParentIdent}}
+                    <input type="hidden" name="pid" id="pid" value="{{.ParentIdent}}"/>
+                {{end}}
+
+                {{template "EditForm" .}}
+
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                <script>
+                    function doCancel() {
+                        {{if .CancelURL}}
+                            this.location="{{.CancelURL}}";
+                        {{else}}
+                            this.location="{{.URL}}";
+                        {{end}}
+                    }
+                </script>
+                <button type="button" class="btn btn-secondary" onclick="doCancel()">Cancel</button>
+            </form>
+        </div>
+        {{block "EditBottom" . }}
+        {{end}}
+    </div>
+{{end}}
+
+{{define "New"}}
+    {{template "Edit" .}}
+{{end}}
+
+{{define "Body"}}
+    {{if eq .Mode "edit"}}
+        {{template "Edit" .}}
+    {{else if eq .Mode "new"}}
+        {{template "Edit" .}}
+    {{else if eq .Mode "view"}}
+        {{template "View" .}}
+    {{else}}
+        {{block "CustomMode" .}}
+            {{calltemplate (printf "CustomMode_%s" .Mode) .}}
+        {{end}}
+    {{end}}
+{{end}}
+
+{{define "View"}}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                {{template "Header" .}}
+                <div class="row">
+                    <div class="col-sm">
+                        {{template "SetTabs" .}}
+                        {{if .tabs}}
+                            <ul class="nav nav-tabs">
+                                {{template "ViewTabs" .tabs}}
+                            </ul>
+                            <div class="tab-content">
+                                {{template "ViewTabContents" makeslice . .tabs}}
+                            </div>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "SetTabs"}}
+    {{tabs . ""}}
+{{end}}
+
+{{define "ViewTab"}}
+    {{$tabId := tolower (index . 0)}}
+    <li class="nav-item">
+        <a class="nav-link {{index . 1}}" id="{{$tabId}}-tab"
+           data-toggle="tab" href="#{{$tabId}}" role="tab"
+           aria-controls="profile" aria-selected="true">{{replace (index . 0) "_" " "}}</a>
+    </li>
+{{end}}
+
+{{define "ViewTabs"}}
+    {{$active := " active"}}
+    {{range .}}
+        {{template "ViewTab" makeslice . $active}}
+        {{$active = ""}}
+    {{end}}
+{{end}}
+
+{{define "ViewTabContents"}}
+    {{$active := "active"}}
+    {{range index . 1}}
+        {{$tabId := tolower .}}
+        <div class="tab-pane fade show {{$active}}" id="{{$tabId}}" role="tabpanel" aria-labelledby="{{$tabId}}-tab">
+            {{calltemplate . (index $ 0)}}
+            {{$active = ""}}
+        </div>
+    {{end}}
+{{end}}
+
+{{define "FloatField"}}
+    {{template "BasicField" .}}
+{{end}}
+
+{{define "BasicField"}}
+    {{if ne .Mode "view"}}
+        <div class="form-group">
+            <label for="{{.FieldName}}">{{.Label}}:</label>
+            {{if .Tags.Has "options"}}
+                <datalist id="{{.FieldName}}-Datalist">
+                    {{range $option := .Tags.GetStringList "options"}}
+                        <option>{{$option}}</option>
+                    {{end}}
+                </datalist>
+            {{end}}
+            <input type="{{.InputType}}" class="form-control" name="{{.FieldName}}" id="{{.FieldName}}" value="{{.Value}}"
+                   {{range $attr, $val := .Tags.Tags}}
+                       {{$attr}}="{{$val}}"
+                   {{end}}
+                    {{if .Tags.Has "options"}}
+                        list="{{$.FieldName}}-Datalist"
+                    {{end}}
+            />
+        </div>
+    {{else}}
+        <div class="row my-2">
+            <div class="col-sm-4">{{.Label}}:</div>
+            {{if .HRef}}
+                <div class="col-sm-8"><a href="{{.HRef}}">{{.Value}}</a></div>
+            {{else}}
+                <div class="col-sm-8">{{.Value}}</div>
+            {{end}}
+        </div>
+    {{end}}
+{{end}}
+
+{{define "TextField"}}
+    {{if ne .Mode "view"}}
+        <div class="form-group">
+            <label for="{{.FieldName}}">{{.Label}}:</label>
+            <textarea class="form-control" name="{{.FieldName}}" id="{{.FieldName}}"
+                {{range $attr, $val := .Tags.Tags}}
+                    {{$attr}}="{{$val}}"
+                {{end}}
+            >{{.Value}}</textarea>
+        </div>
+    {{else}}
+        <div class="row my-2">
+            <div class="col-sm-4">{{.Label}}:</div>
+            <div class="col-sm-8"><pre>{{.Value}}</pre></div>
+        </div>
+    {{end}}
+{{end}}
+
+{{define "Lookup"}}
+    {{if ne .Mode "view"}}
+        <div class="form-group" id="{{.FieldName}}-Group">
+            <label for="{{.FieldName}}-Input">{{.Label}}:</label>
+        </div>
+        <script>
+            const {{.FieldName}}Lookup = new Lookup(
+                "{{.FieldName}}-Group",
+                {
+                    name: "{{.FieldName}}",
+                    ref: {{.ReferenceJSON}},
+                    query: "{{.Query}}",
+                    display: "`{{.DisplayExpr}}`"
+                }
+            );
+        </script>
+    {{else}}
+        <div class="row my-2">
+            <div class="col-sm-4">{{.Label}}:</div>
+            <div class="col-sm-8"><a href="{{.HRef}}">{{.Value}}</a></div>
+        </div>
+    {{end}}
+{{end}}
+
+{{define "Field"}}
+    {{calltemplate .Template .}}
+{{end}}
+
+{{define "Parent"}}
+    <div class="row my-2">
+        <div class="col-sm-4">{{.Label}}:</div>
+        <div class="col-sm-8"><a href="{{.HRef}}">{{.Value}}</a></div>
+    </div>
+{{end}}
+
+{{define "Static"}}
+    <div class="row my-2">
+        <div class="col-sm-4">{{index . 0}}:</div>
+        <div class="col-sm-8">{{index . 1}}</div>
+    </div>
+{{end}}
+
+{{define "EditButton"}}
+    <a href="{{.URL}}?mode=edit" class="card-link"><img src="/image/file-edit.png" height="20px" width="20px" alt="Edit"/>&nbsp;Edit</a>
+{{end}}

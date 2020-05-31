@@ -1,0 +1,41 @@
+{
+  "author": "Jan de Visser",
+  "version": "1.0",
+  "app_id": "covid",
+  "about": {
+    "copyright": "(c) 2012-2019 finiandarcy.com",
+    "contact": "info@finiandarcy.com",
+    "contacturl": "http://www.finiandarcy.com",
+    "application_name": "Covid-19 Analysis"
+  },
+
+  "pipeline": [
+    { "handler":  "Session" },
+    { "handler":  "Auth" },
+    { "handler":  "Log" },
+    { "handler":  "Serve" }
+  ],
+
+  "mounts": [
+    { "pattern": "/css/", "static": true},
+    { "pattern": "/image/", "static": true},
+    { "pattern": "/data/", "static": true},
+    { "pattern": "/javascript/", "static": true},
+    { "pattern": "/static/", "static": true},
+    { "pattern": "/json/", "handler": "JSON"},
+    { "pattern": "/submit/", "handler": "Submit"},
+    { "pattern": "/index.html", "handler": "Redirect", "config":  { "Redirect": "/sample" } },
+    { "pattern": "/chart/cases", "handler": "ChartCases"},
+    { "pattern": "/chart/deathsbypop", "handler": "ChartDeathsByPop"},
+    { "pattern": "/chart/deathsbygdp", "handler": "ChartDeathsByGDP"},
+    { "pattern": "/chart/deathsbyage", "handler": "ChartDeathsByMedianAge"},
+    { "pattern": "/chart", "handler": "ChartPage"},
+    { "pattern": "/import", "handler": "ImportSamples"},
+    { "pattern": "/rebuild", "handler": "Rebuild"},
+    { "pattern": "/sync", "handler": "SyncCountries"},
+    { "pattern": "/clear", "handler": "ClearCache"},
+    { "pattern": "/wipe", "handler": "Wipe"},
+    { "pattern": "/", "handler": "Entity"}
+  ],
+  "icon": "/image/ceilingcat.jpg"
+}

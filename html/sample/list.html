@@ -1,0 +1,123 @@
+{{define "Title"}}Covid-19 Analysis{{end}}
+
+{{define "Body"}}
+    <div class="row">
+        <div class="col-sm-9">
+            <h2>COVID-19 Cases and Deaths</h2>
+        </div>
+        <div class="col-sm-3">
+            <form action="/sample" method="GET">
+                {{$current := .date}}
+                <select id="date" name="date">
+                    {{range .dates}}
+                        <option {{if and (eq $current.Year .Year) (eq $current.YearDay .YearDay)}}selected {{end}}value="{{.Format "2006-01-02"}}">{{.Format "Jan 2"}}</option>
+                    {{end}}
+                </select>
+                <input type="submit" value="Go"/>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="/chart/cases?cases={{.Parameters.Get "cases"}}&deaths={{.Parameters.Get "deaths"}}&regression={{.Parameters.Get "regression"}}&country={{.Parameters.Get "country"}}&exclude={{.Parameters.Get "exclude"}}"/>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="customizeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Customize Chart
+            </button>
+            <script>
+                function casesSelectChange(e) {
+                    const cases = document.getElementById("numberCases");
+                    const deaths = document.getElementById("numberDeaths");
+                    const regression = document.getElementById("regression");
+                    if (cases.value === "DAILY") {
+                        deaths.value = "DAILY"
+                        deaths.disabled = true
+                        regression.disabled = false
+                    } else {
+                        if (deaths.value === "DAILY") {
+                            deaths.value = "ABS"
+                        }
+                        deaths.disabled = false
+                        regression.disabled = true
+                    }
+                }
+            </script>
+            <div class="dropdown-menu" aria-labelledby="customizeButton" style="width: 300px">
+                <form action="{{.URL}}" method="get" class="px-4 py-3">
+                    <div class="form-group">
+                        <label for="country">Countries to include</label>
+                        <input type="text" id="country" name="country"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exclude">Countries to exclude</label>
+                        <input type="text" id="exclude" name="exclude"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberCases">#Cases</label>
+                        <select name="cases" class="form-control" id="numberCases" onchange="casesSelectChange();">
+                            {{$casesParam := .Parameters.Get "cases"}}
+                            {{$deathsParam := .Parameters.Get "deaths"}}
+                            {{$casesValues := makeslice "ABS" "REL" "DAILY" "NONE"}}
+                            {{$casesTexts := makeslice "Total Number" "Cases per Million" "Daily new cases" "Don't show"}}
+                            {{range $ix, $value := $casesValues}}
+                                <option value={{$value}}
+                                        {{if eq $casesParam $value}}selected{{end}}
+                                >{{index $casesTexts $ix}}</option>
+                            {{end}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberDeaths">#Deceased</label>
+                        <select name="deaths" class="form-control" id="numberDeaths"
+                                {{if eq $casesParam "DAILY"}}disabled{{end}}
+                        >
+                            {{$deathsValues := makeslice "ABS" "REL" "MORTALITY" "NONE"}}
+                            {{$deathsTexts := makeslice "Total Number" "Deaths per Million" "Deaths relative to Cases" "Don't show"}}
+                            {{range $ix, $value := $deathsValues}}
+                                <option value={{$value}}
+                                        {{if eq $deathsParam $value}}selected{{end}}
+                                >{{index $deathsTexts $ix}}</option>
+                            {{end}}
+                            <option value="DAILY" disabled
+                                    {{if eq $deathsParam "DAILY"}}selected{{end}}
+                            >Daily new cases</option>
+                        </select>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" name="regression" id="regression" value="true"
+                               {{if eq (.Parameters.Get "cases") "DAILY" | not}}disabled{{end}}
+                                {{if eq (.Parameters.Get "regression") "true"}}checked{{end}}
+                        >
+                        <label class="custom-control-label" for="regression">Display 3rd degree polynomial regression</label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th class="text-center" style="width: 60px">&nbsp;</th>
+                <th class="text-center">Country/Region</th>
+                <th class="text-center">Total Confirmed</th>
+                <th class="text-center">Total Deceased</th>
+            </tr>
+            {{range .results}}
+                <tr>
+                    <td class="text-center" style="width: 60px">
+                        <img src="{{(index . 1).GetFlag "sm" }}" alt="{{(index . 1).Name}}" height="17px" width="25px"/>
+                    </td>
+                    <td class="text-center" style="vertical-align: middle">
+                        <a href="/jurisdiction/{{(index . 1).Ident}}">{{(index . 1).Name}}</a>
+                    </td>
+                    <td class="text-center">{{(index . 0).Confirmed}}</td>
+                    <td class="text-center">{{(index . 0).Deceased}}</td>
+                </tr>
+            {{end}}
+        </table>
+    </div>
+{{end}}
