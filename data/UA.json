@@ -1,0 +1,150 @@
+{
+    "name": "Ukraine",
+    "alpha-2": "UA",
+    "alpha-3": "UKR",
+    "country-code": "804",
+    "iso_3166-2": "ISO 3166-2:UA",
+    "region": "Europe",
+    "sub-region": "Eastern Europe",
+    "intermediate-region": "",
+    "region-code": "150",
+    "sub-region-code": "151",
+    "intermediate-region-code": "",
+    "regions": [
+        {
+            "name": "Cherkaska oblast",
+            "alias": ["Cherkasy Oblast"],
+            "alpha-2": "71"
+        },
+        {
+            "name": "Chernihivska oblast",
+            "alias": ["Chernihiv Oblast"],
+            "alpha-2": "74"
+        },
+        {
+            "name": "Chernivetska oblast",
+            "alias": ["Chernivtsi Oblast"],
+            "alpha-2": "77"
+        },
+        {
+            "name": "Dnipropetrovska oblast",
+            "alias": ["Dnipropetrovsk Oblast"],
+            "alpha-2": "12"
+        },
+        {
+            "name": "Donetska oblast",
+            "alias": ["Donetsk Oblast"],
+            "alpha-2": "14"
+        },
+        {
+            "name": "Ivano-Frankivska oblast",
+            "alias": ["Ivano-Frankivsk Oblast"],
+            "alpha-2": "26"
+        },
+        {
+            "name": "Kharkivska oblast",
+            "alias": ["Kharkiv Oblast"],
+            "alpha-2": "63"
+        },
+        {
+            "name": "Khersonska oblast",
+            "alias": ["Kherson Oblast"],
+            "alpha-2": "65"
+        },
+        {
+            "name": "Khmelnytska oblast",
+            "alias": ["Khmelnytskyi Oblast"],
+            "alpha-2": "68"
+        },
+        {
+            "name": "Kirovohradska oblast",
+            "alias": ["Kirovohrad Oblast"],
+            "alpha-2": "35"
+        },
+        {
+            "name": "Kyivska oblast",
+            "alias": ["Kiev Oblast"],
+            "alpha-2": "32"
+        },
+        {
+            "name": "Luhanska oblast",
+            "alias": ["Luhansk Oblast"],
+            "alpha-2": "09"
+        },
+        {
+            "name": "Lvivska oblast",
+            "alias": ["Lviv Oblast"],
+            "alpha-2": "46"
+        },
+        {
+            "name": "Mykolaivska oblast",
+            "alias": ["Mykolaiv Oblast"],
+            "alpha-2": "48"
+        },
+        {
+            "name": "Odeska oblast",
+            "alias": ["Odessa Oblast"],
+            "alpha-2": "51"
+        },
+        {
+            "name": "Poltavska oblast",
+            "alias": ["Poltava Oblast"],
+            "alpha-2": "53"
+        },
+        {
+            "name": "Rivnenska oblast",
+            "alias": ["Rivne Oblast"],
+            "alpha-2": "56"
+        },
+        {
+            "name": "Sumska oblast",
+            "alias": ["Sumy Oblast"],
+            "alpha-2": "59"
+        },
+        {
+            "name": "Ternopilska oblast",
+            "alias": ["Ternopil Oblast"],
+            "alpha-2": "61"
+        },
+        {
+            "name": "Vinnytska oblast",
+            "alias": ["Vinnytsia Oblast"],
+            "alpha-2": "05"
+        },
+        {
+            "name": "Volynska oblast",
+            "alias": ["Volyn Oblast"],
+            "alpha-2": "07"
+        },
+        {
+            "name": "Zakarpatska oblast",
+            "alias": ["Zakarpattia Oblast"],
+            "alpha-2": "21"
+        },
+        {
+            "name": "Zaporizka oblast",
+            "alias": ["Zaporizhia Oblast"],
+            "alpha-2": "23"
+        },
+        {
+            "name": "Zhytomyrska oblast",
+            "alias": ["Zhytomyr Oblast"],
+            "alpha-2": "18"
+        },
+        {
+            "name": "Avtonomna Respublika Krym",
+            "alias": ["Crimea Republic", "Crimea Republic*"],
+            "alpha-2": "43"
+        },
+        {
+            "name": "Kyiv",
+            "alias": ["Kiev"],
+            "alpha-2": "30"
+        },
+        {
+            "name": "Sevastopol",
+            "alias": ["Sevastopol*"],
+            "alpha-2": "40"
+        }
+    ]
+}
