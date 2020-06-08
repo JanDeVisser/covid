@@ -2144,19 +2144,6 @@
     "intermediate-region-code": "029"
   },
   {
-    "name": "Japan",
-    "alpha-2": "JP",
-    "alpha-3": "JPN",
-    "country-code": "392",
-    "iso_3166-2": "ISO 3166-2:JP",
-    "region": "Asia",
-    "sub-region": "Eastern Asia",
-    "intermediate-region": "",
-    "region-code": "142",
-    "sub-region-code": "030",
-    "intermediate-region-code": ""
-  },
-  {
     "name": "Jersey",
     "alias": ["Channel Islands"],
     "alpha-2": "JE",
@@ -3217,19 +3204,6 @@
     "intermediate-region-code": "005"
   },
   {
-    "name": "Peru",
-    "alpha-2": "PE",
-    "alpha-3": "PER",
-    "country-code": "604",
-    "iso_3166-2": "ISO 3166-2:PE",
-    "region": "Americas",
-    "sub-region": "Latin America and the Caribbean",
-    "intermediate-region": "South America",
-    "region-code": "019",
-    "sub-region-code": "419",
-    "intermediate-region-code": "005"
-  },
-  {
     "name": "Philippines",
     "alpha-2": "PH",
     "alpha-3": "PHL",
@@ -3327,20 +3301,6 @@
     "alpha-3": "ROU",
     "country-code": "642",
     "iso_3166-2": "ISO 3166-2:RO",
-    "region": "Europe",
-    "sub-region": "Eastern Europe",
-    "intermediate-region": "",
-    "region-code": "150",
-    "sub-region-code": "151",
-    "intermediate-region-code": ""
-  },
-  {
-    "name": "Russia",
-    "alias": ["Russian Federation"],
-    "alpha-2": "RU",
-    "alpha-3": "RUS",
-    "country-code": "643",
-    "iso_3166-2": "ISO 3166-2:RU",
     "region": "Europe",
     "sub-region": "Eastern Europe",
     "intermediate-region": "",
@@ -3875,19 +3835,6 @@
     "intermediate-region-code": ""
   },
   {
-    "name": "Sweden",
-    "alpha-2": "SE",
-    "alpha-3": "SWE",
-    "country-code": "752",
-    "iso_3166-2": "ISO 3166-2:SE",
-    "region": "Europe",
-    "sub-region": "Northern Europe",
-    "intermediate-region": "",
-    "region-code": "150",
-    "sub-region-code": "154",
-    "intermediate-region-code": ""
-  },
-  {
     "name": "Switzerland",
     "alpha-2": "CH",
     "alpha-3": "CHE",
@@ -4120,19 +4067,6 @@
     "region-code": "002",
     "sub-region-code": "202",
     "intermediate-region-code": "014"
-  },
-  {
-    "name": "Ukraine",
-    "alpha-2": "UA",
-    "alpha-3": "UKR",
-    "country-code": "804",
-    "iso_3166-2": "ISO 3166-2:UA",
-    "region": "Europe",
-    "sub-region": "Eastern Europe",
-    "intermediate-region": "",
-    "region-code": "150",
-    "sub-region-code": "151",
-    "intermediate-region-code": ""
   },
   {
     "name": "United Arab Emirates",

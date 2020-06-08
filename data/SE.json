@@ -1,0 +1,197 @@
+{
+  "name": "Sweden",
+  "alpha-2": "SE",
+  "alpha-3": "SWE",
+  "country-code": "752",
+  "iso_3166-2": "ISO 3166-2:SE",
+  "region": "Europe",
+  "sub-region": "Northern Europe",
+  "intermediate-region": "",
+  "region-code": "150",
+  "sub-region-code": "154",
+  "intermediate-region-code": "",
+  "regions": [
+    {
+      "name": "Blekinge län",
+      "alpha-2": "K",
+      "alpha-3": "10",
+      "alias": [
+        "Blekinge"
+      ]
+    },
+    {
+      "name": "Dalarnas län",
+      "alpha-2": "W",
+      "alpha-3": "20",
+      "alias": [
+        "Dalarna"
+      ]
+    },
+    {
+      "name": "Gotlands län",
+      "alpha-2": "I",
+      "alpha-3": "09",
+      "alias": [
+        "Gotland"
+      ]
+    },
+    {
+      "name": "Gävleborgs län",
+      "alpha-2": "X",
+      "alpha-3": "21",
+      "alias": [
+        "Gavleborg",
+        "Gävleborg"
+      ]
+    },
+    {
+      "name": "Hallands län",
+      "alpha-2": "N",
+      "alpha-3": "13",
+      "alias": [
+        "Halland"
+      ]
+    },
+    {
+      "name": "Jämtlands län",
+      "alpha-2": "Z",
+      "alpha-3": "23",
+      "alias": [
+        "Jamtland",
+        "Jämtland",
+        "Jamtland Harjedalen"
+      ]
+    },
+    {
+      "name": "Jönköpings län",
+      "alpha-2": "F",
+      "alpha-3": "06",
+      "alias": [
+        "Jonkoping",
+        "Jönköping"
+      ]
+    },
+    {
+      "name": "Kalmar län",
+      "alpha-2": "H",
+      "alpha-3": "08",
+      "alias": [
+        "Kalmar"
+      ]
+    },
+    {
+      "name": "Kronobergs län",
+      "alpha-2": "G",
+      "alpha-3": "07",
+      "alias": [
+        "Kronoberg"
+      ]
+    },
+    {
+      "name": "Norrbottens län",
+      "alpha-2": "BD",
+      "alpha-3": "25",
+      "alias": [
+        "Norrbotten"
+      ]
+    },
+    {
+      "name": "Skåne län",
+      "alpha-2": "M",
+      "alpha-3": "12",
+      "alias": [
+        "Skåne",
+        "Skane"
+      ]
+    },
+    {
+      "name": "Stockholms län",
+      "alpha-2": "AB",
+      "alpha-3": "01",
+      "alias": [
+        "Stockholm"
+      ]
+    },
+    {
+      "name": "Södermanlands län",
+      "alpha-2": "D",
+      "alpha-3": "04",
+      "alias": [
+        "Södermanland",
+        "Sodermanland",
+        "Sormland"
+      ]
+    },
+    {
+      "name": "Uppsala län",
+      "alpha-2": "C",
+      "alpha-3": "03",
+      "alias": [
+        "Uppsala"
+      ]
+    },
+    {
+      "name": "Värmlands län",
+      "alpha-2": "S",
+      "alpha-3": "17",
+      "alias": [
+        "Värmland",
+        "Varmland"
+      ]
+    },
+    {
+      "name": "Västerbottens län",
+      "alpha-2": "AC",
+      "alpha-3": "24",
+      "alias": [
+        "Västerbotten",
+        "Vasterbotten"
+      ]
+    },
+    {
+      "name": "Västernorrlands län",
+      "alpha-2": "Y",
+      "alpha-3": "22",
+      "alias": [
+        "Vasternorrland",
+        "Västernorrland"
+      ]
+    },
+    {
+      "name": "Västmanlands län",
+      "alpha-2": "U",
+      "alpha-3": "19",
+      "alias": [
+        "Västmanland",
+        "Vastmanland"
+      ]
+    },
+    {
+      "name": "Västra Götalands län",
+      "alpha-2": "O",
+      "alpha-3": "14",
+      "alias": [
+        "Västra Götaland",
+        "Vastra Gotaland"
+      ]
+    },
+    {
+      "name": "Örebro län",
+      "alpha-2": "T",
+      "alpha-3": "18",
+      "alias": [
+        "Örebro",
+        "Orebro"
+      ]
+    },
+    {
+      "name": "Östergötlands län",
+      "alpha-2": "E",
+      "alpha-3": "05",
+      "alias": [
+        "Östergötland",
+        "Ostergotland"
+      ]
+    }
+  ]
+}

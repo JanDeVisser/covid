@@ -52,24 +52,24 @@ type DataSeries struct {
 }
 
 const (
-	ChartTypeAbsolute = "ABS"
-	ChartTypeRelative = "REL"
-	ChartTypeDaily = "DAILY"
-	ChartTypeSuppress = "NONE"
+	ChartTypeAbsolute  = "ABS"
+	ChartTypeRelative  = "REL"
+	ChartTypeDaily     = "DAILY"
+	ChartTypeSuppress  = "NONE"
 	ChartTypeMortality = "MORTALITY"
 )
 
 const (
-	ChartDataCases = 0
+	ChartDataCases  = 0
 	ChartDataDeaths = 1
 )
 
 type CasesChartSeries struct {
-	ChartType     string
-	Regression    bool
-	Data          []float64
-	Current       int
-	New           int
+	ChartType  string
+	Regression bool
+	Data       []float64
+	Current    int
+	New        int
 }
 
 type CasesChartData struct {
@@ -77,15 +77,18 @@ type CasesChartData struct {
 	Query         *grumble.Query
 	Country       *Jurisdiction
 	Jurisdictions []grumble.Persistable
+	Regions       []grumble.Persistable
 	Exclude       []grumble.Persistable
-	Results       [][]grumble.Persistable
-	Series        map[string]*DataSeries
-	First         time.Time
-	Last          time.Time
-	Days          int
-	Population    float64
-	Data          [2]CasesChartSeries
-	ChartSeries   []chart.Series
+	Aggregate     bool
+
+	Results     [][]grumble.Persistable
+	Series      map[string]*DataSeries
+	First       time.Time
+	Last        time.Time
+	Days        int
+	Population  float64
+	Data        [2]CasesChartSeries
+	ChartSeries []chart.Series
 }
 
 var Colors = []drawing.Color{
@@ -119,7 +122,7 @@ var Colors = []drawing.Color{
 //	TextRotationDegrees: 0,
 //}
 
-func MakeCasesChartData(req *http.Request) (ret *CasesChartData, err error){
+func MakeCasesChartData(req *http.Request) (ret *CasesChartData, err error) {
 	ret = new(CasesChartData)
 	if ret.Manager, err = grumble.MakeEntityManager(); err != nil {
 		return
@@ -138,12 +141,54 @@ func MakeCasesChartData(req *http.Request) (ret *CasesChartData, err error){
 	}
 
 	exclude := req.FormValue("exclude")
+	ret.Aggregate = req.FormValue("breakout") != "true"
 	switch {
-	case len(ret.Jurisdictions) == 1 && req.FormValue("breakout") == "true":
+	case len(ret.Jurisdictions) == 1 && !ret.Aggregate:
 		ret.Country = ret.Jurisdictions[0].(*Jurisdiction)
+		ret.Jurisdictions = make([]grumble.Persistable, 0)
+		switch {
+		case req.FormValue("include") != "":
+			for ix, region := range strings.Split(req.FormValue("include"), ",") {
+				if ix > 5 {
+					break
+				}
+				r := ret.Country.GetRegion(region)
+				if r != nil {
+					ret.Jurisdictions = append(ret.Jurisdictions, r)
+				}
+			}
+		default:
+			if len(ret.Country.regions) > 1 {
+				if ret.Jurisdictions, err = ret.Country.TopRegions(6, true, strings.Split(exclude, ",")); err != nil {
+					return
+				}
+			}
+		}
+	case len(ret.Jurisdictions) == 1 && ret.Aggregate:
+		ret.Country = ret.Jurisdictions[0].(*Jurisdiction)
+		ret.Regions = make([]grumble.Persistable, 0)
 		if len(ret.Country.regions) > 1 {
-			if ret.Jurisdictions, err = ret.Country.TopRegions(6, true, strings.Split(exclude, ",")); err != nil {
-				return
+			switch {
+			case req.FormValue("include") != "":
+				for _, region := range strings.Split(req.FormValue("include"), ",") {
+					r := ret.Country.GetRegion(region)
+					if r != nil {
+						ret.Regions = append(ret.Regions, r)
+					}
+				}
+			case req.FormValue("exclude") != "":
+				excl := make(map[int]bool, 0)
+				for _, region := range strings.Split(req.FormValue("exclude"), ",") {
+					r := ret.Country.GetRegion(region)
+					if r != nil {
+						excl[r.Ident] = true
+					}
+				}
+				for _, r := range ret.Country.regions {
+					if ok, _ := excl[r.Ident]; !ok {
+						ret.Regions = append(ret.Regions, r)
+					}
+				}
 			}
 		}
 	case len(ret.Jurisdictions) == 0:
@@ -211,12 +256,15 @@ func (data *CasesChartData) TopCountries(number int, cases bool, exclude []strin
 	return
 }
 
-
-
 func (data *CasesChartData) ExecuteQuery() (err error) {
-	switch len(data.Jurisdictions) {
-	case 0:
+	switch {
+	case len(data.Jurisdictions) == 0:
 		data.Query.AddCondition(&grumble.IsRoot{})
+	case len(data.Regions) > 0 && data.Aggregate:
+		data.Query.AddCondition(&grumble.References{
+			Column:     "Jurisdiction",
+			References: data.Regions,
+		})
 	default:
 		data.Query.AddCondition(&grumble.References{
 			Column:     "Jurisdiction",
@@ -248,10 +296,16 @@ func (data *CasesChartData) BuildSeries() (err error) {
 		var jurisdiction *Jurisdiction
 		var series *DataSeries
 		var ok bool
-		name := "Global"
-		if len(data.Jurisdictions) > 0 {
+		var name string
+		switch {
+		case len(data.Regions) > 0:
+			jurisdiction = data.Jurisdictions[0].(*Jurisdiction)
+			name = jurisdiction.Name
+		case len(data.Jurisdictions) > 0:
 			jurisdiction = row[1].(*Jurisdiction)
 			name = jurisdiction.Name
+		default:
+			name = "Global"
 		}
 		series, ok = data.Series[name]
 		if !ok {
@@ -285,7 +339,7 @@ func (data *CasesChartData) BuildSeries() (err error) {
 			series.Current.NewDeceased = series.Current.Deceased - series.Deaths
 		}
 	}
-	data.Last = data.Last.AddDate(0,0,1)
+	data.Last = data.Last.AddDate(0, 0, 1)
 	data.Days = int(data.Last.Sub(data.First).Hours()) / 24
 	return
 }
@@ -351,7 +405,7 @@ func (data *CasesChartData) BuildChart() (err error) {
 		data.Data[ChartDataDeaths].Current = 0
 		data.Data[ChartDataDeaths].New = 0
 		seriesIx := 0
-		for d, ix := data.First, 0; d.Before(data.Last); d, ix = d.AddDate(0,0,1), ix + 1 {
+		for d, ix := data.First, 0; d.Before(data.Last); d, ix = d.AddDate(0, 0, 1), ix+1 {
 			dateSeries[ix] = d
 			if !d.Before(series.DataPoints[seriesIx].Date) {
 				data.Data[ChartDataCases].Current = series.DataPoints[seriesIx].Count
@@ -380,7 +434,7 @@ func (data *CasesChartData) BuildChart() (err error) {
 				data.ChartSeries = append(data.ChartSeries, &chart.PolynomialRegressionSeries{
 					Name: "Regression " + code,
 					Style: chart.Style{
-						StrokeColor: series.Color,
+						StrokeColor:     series.Color,
 						StrokeDashArray: []float64{2.0, 2.0},
 					},
 					Degree:      3,
@@ -695,10 +749,10 @@ type ChartPageContext struct {
 func (ipc *ChartPageContext) MakeContext(req *handler.PlainRequest) (err error) {
 	data := make(map[string]interface{})
 	req.Data = data
+	req.Template = "html/charts.html"
 	return
 }
 
 func ChartPage(w http.ResponseWriter, r *http.Request) {
 	handler.ServePlainPage(w, r, &ChartPageContext{})
 }
-

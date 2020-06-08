@@ -134,6 +134,17 @@ func getSample(mgr *grumble.EntityManager, parent *Sample, d time.Time, j *Juris
 	return
 }
 
+var unknownRegionsByCountry = make(map[string][]string)
+
+func unknownRegion(j *Jurisdiction, region string) {
+	regions, ok := unknownRegionsByCountry[j.Alpha2]
+	if !ok {
+		regions = make([]string, 0)
+	}
+	regions = append(regions, region)
+	unknownRegionsByCountry[j.Alpha2] = regions
+}
+
 func importRecord(mgr *grumble.EntityManager, d time.Time, r []string) (err error) {
 	var admin2 string
 	var provState string
@@ -186,7 +197,7 @@ func importRecord(mgr *grumble.EntityManager, d time.Time, r []string) (err erro
 	}
 
 	if len(provState) > 4 && provState[len(provState)-4:len(provState)-2] == ", " {
-		provState = provState[len(provState) - 2:]
+		provState = provState[len(provState)-2:]
 	}
 
 	var c *Sample
@@ -212,7 +223,8 @@ func importRecord(mgr *grumble.EntityManager, d time.Time, r []string) (err erro
 				return
 			}
 		} else {
-			log.Printf("Region %q in country %q not found", provState, countryName)
+			unknownRegion(country, provState)
+			//log.Printf("Region %q in country %q not found", provState, countryName)
 			//return errors.New(fmt.Sprintf("region %q in country %q not found", provState, countryName))
 		}
 	}
@@ -256,7 +268,7 @@ func importSamples(mgr *grumble.EntityManager, from *time.Time, to *time.Time, s
 					}
 				}
 			}
-			d.AddDate(0,0,1)
+			d.AddDate(0, 0, 1)
 		}
 		end = time.Now()
 		if to != nil {
@@ -387,6 +399,12 @@ func importSamples(mgr *grumble.EntityManager, from *time.Time, to *time.Time, s
 			}
 		}
 	}
+	for country, regions := range unknownRegionsByCountry {
+		log.Printf("Unknown in %s", country)
+		for _, r := range regions {
+			log.Printf("\t%s", r)
+		}
+	}
 	return
 }
 
@@ -405,6 +423,9 @@ func ImportRequest(res http.ResponseWriter, req *http.Request) {
 }
 
 func RebuildRequest(res http.ResponseWriter, req *http.Request) {
+	if req.FormValue("magic") != "DEADBEEF" {
+		http.Error(res, "Missing magic value", http.StatusInternalServerError)
+	}
 	mgr, err := grumble.MakeEntityManager()
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)

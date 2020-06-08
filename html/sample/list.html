@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <img src="/chart/cases?cases={{.Parameters.Get "cases"}}&deaths={{.Parameters.Get "deaths"}}&regression={{.Parameters.Get "regression"}}&country={{.Parameters.Get "country"}}&exclude={{.Parameters.Get "exclude"}}"/>
+            <img src="/chart/cases?cases={{.Cases}}&deaths={{.Deaths}}&regression={{.Regression}}&country={{.Country}}&exclude={{.Exclude}}"/>
         </div>
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="customizeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,22 +47,20 @@
                 <form action="{{.URL}}" method="get" class="px-4 py-3">
                     <div class="form-group">
                         <label for="country">Countries to include</label>
-                        <input type="text" id="country" name="country"/>
+                        <input type="text" id="country" name="country" value="{{.Country}}"/>
                     </div>
                     <div class="form-group">
                         <label for="exclude">Countries to exclude</label>
-                        <input type="text" id="exclude" name="exclude"/>
+                        <input type="text" id="exclude" name="exclude" value="{{.Exclude}}"/>
                     </div>
                     <div class="form-group">
                         <label for="numberCases">#Cases</label>
                         <select name="cases" class="form-control" id="numberCases" onchange="casesSelectChange();">
-                            {{$casesParam := .Parameters.Get "cases"}}
-                            {{$deathsParam := .Parameters.Get "deaths"}}
                             {{$casesValues := makeslice "ABS" "REL" "DAILY" "NONE"}}
                             {{$casesTexts := makeslice "Total Number" "Cases per Million" "Daily new cases" "Don't show"}}
                             {{range $ix, $value := $casesValues}}
                                 <option value={{$value}}
-                                        {{if eq $casesParam $value}}selected{{end}}
+                                        {{if eq $.Cases $value}}selected{{end}}
                                 >{{index $casesTexts $ix}}</option>
                             {{end}}
                         </select>
@@ -70,24 +68,24 @@
                     <div class="form-group">
                         <label for="numberDeaths">#Deceased</label>
                         <select name="deaths" class="form-control" id="numberDeaths"
-                                {{if eq $casesParam "DAILY"}}disabled{{end}}
+                                {{if eq .Cases "DAILY"}}disabled{{end}}
                         >
                             {{$deathsValues := makeslice "ABS" "REL" "MORTALITY" "NONE"}}
                             {{$deathsTexts := makeslice "Total Number" "Deaths per Million" "Deaths relative to Cases" "Don't show"}}
                             {{range $ix, $value := $deathsValues}}
                                 <option value={{$value}}
-                                        {{if eq $deathsParam $value}}selected{{end}}
+                                        {{if eq $.Deaths $value}}selected{{end}}
                                 >{{index $deathsTexts $ix}}</option>
                             {{end}}
                             <option value="DAILY" disabled
-                                    {{if eq $deathsParam "DAILY"}}selected{{end}}
+                                    {{if eq .Deaths "DAILY"}}selected{{end}}
                             >Daily new cases</option>
                         </select>
                     </div>
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" name="regression" id="regression" value="true"
-                               {{if eq (.Parameters.Get "cases") "DAILY" | not}}disabled{{end}}
-                                {{if eq (.Parameters.Get "regression") "true"}}checked{{end}}
+                               {{if eq .Cases "DAILY" | not}}disabled{{end}}
+                                {{if eq .Regression "true"}}checked{{end}}
                         >
                         <label class="custom-control-label" for="regression">Display 3rd degree polynomial regression</label>
                     </div>

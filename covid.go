@@ -83,6 +83,9 @@ func WipeRequest(res http.ResponseWriter, req *http.Request) {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	if err := app.SyncCountries(); err != nil {
+		return
+	}
 	http.Redirect(res, req, "/import", http.StatusTemporaryRedirect)
 }
 

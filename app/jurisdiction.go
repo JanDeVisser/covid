@@ -35,8 +35,8 @@ import (
 type Jurisdiction struct {
 	grumble.Key
 	Name         string
-	Alpha2       string  `grumble:"verbose_name=ISO-3166-2 Code"`
-	Alpha3       string  `grumble:"verbose_name=ISO-3166-3 Code"`
+	Alpha2       string `grumble:"verbose_name=ISO-3166-2 Code"`
+	Alpha3       string `grumble:"verbose_name=ISO-3166-3 Code"`
 	Alias        string
 	Aliases      []string
 	regions      map[string]*Jurisdiction
@@ -72,7 +72,7 @@ func persistJurisdictions(regions []Region) (err error) {
 	if err != nil {
 		return
 	}
-	return mgr.TX(func(conn *sql.DB) (err error) {
+	if err = mgr.TX(func(conn *sql.DB) (err error) {
 		for _, c := range regions {
 			if j, ok := jurisdictionsByName[c.Name]; ok {
 				if j.Name == c.Name {
@@ -87,7 +87,10 @@ func persistJurisdictions(regions []Region) (err error) {
 			}
 		}
 		return
-	})
+	}); err != nil {
+		return
+	}
+	return CacheJurisdictions(mgr)
 }
 
 func (jurisdiction *Jurisdiction) Cache() {
@@ -113,13 +116,14 @@ func (jurisdiction *Jurisdiction) Cache() {
 	if m != nil {
 		if _, ok := m[jurisdiction.Name]; !ok {
 			m[jurisdiction.Name] = jurisdiction
-			if jurisdiction.Alpha2 != ""{
+			m[strconv.FormatInt(int64(jurisdiction.Ident), 10)] = jurisdiction
+			if jurisdiction.Alpha2 != "" {
 				m[jurisdiction.Alpha2] = jurisdiction
 			}
-			if jurisdiction.Alpha3 != ""{
+			if jurisdiction.Alpha3 != "" {
 				m[jurisdiction.Alpha3] = jurisdiction
 			}
-			for _, alias := range jurisdiction.Aliases{
+			for _, alias := range jurisdiction.Aliases {
 				m[alias] = jurisdiction
 			}
 		}
@@ -138,6 +142,7 @@ func (jurisdiction *Jurisdiction) Uncache() {
 	}
 	if m != nil {
 		delete(m, jurisdiction.Name)
+		delete(m, strconv.FormatInt(int64(jurisdiction.Ident), 10))
 		if jurisdiction.Alpha2 != "" {
 			delete(m, jurisdiction.Alpha2)
 		}
@@ -304,6 +309,19 @@ func (jurisdiction *Jurisdiction) MakeContext(data map[string]interface{}) (err 
 	}
 	data["date"] = d
 
+	data["Country"] = parameters.Get("country")
+	data["Exclude"] = parameters.Get("exclude")
+	data["Include"] = parameters.Get("include")
+	data["Cases"] = parameters.Get("cases")
+	data["Deaths"] = parameters.Get("deaths")
+	data["Regression"] = parameters.Get("regression")
+
+	data["RExclude"] = parameters.Get("rexclude")
+	data["RInclude"] = parameters.Get("rinclude")
+	data["RCases"] = parameters.Get("rcases")
+	data["RDeaths"] = parameters.Get("rdeaths")
+	data["RRegression"] = parameters.Get("rregression")
+
 	if len(jurisdiction.regions) > 0 {
 		sampleQ := jurisdiction.Manager().MakeQuery(Sample{})
 		sampleQ.AddFilter("Date", d)
@@ -348,7 +366,7 @@ func (jurisdiction *Jurisdiction) MakeContext(data map[string]interface{}) (err 
 	cases := 0
 	deaths := 0
 	for ix := range results {
-		s := results[len(results) - ix - 1][0].(*Sample)
+		s := results[len(results)-ix-1][0].(*Sample)
 		s.NewConfirmed = s.Confirmed - cases
 		cases = s.Confirmed
 		s.NewDeceased = s.Deceased - deaths

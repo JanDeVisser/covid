@@ -1,0 +1,4 @@
+cron:
+  - description: "import new data"
+    url: /import
+    schedule: every 24 hours

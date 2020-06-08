@@ -1,1 +1,5 @@
 cache/*
+countries.json
+conf/database.conf
+conf/database.gcloud.conf
+conf/database.local.conf

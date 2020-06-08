@@ -32,10 +32,10 @@ type Sample struct {
 	grumble.Key
 	Jurisdiction *Jurisdiction
 	Date         time.Time
-	NewConfirmed int   `grumble:"verbose_name=New Confirmed Cases;transient=true"`
-	Confirmed    int   `grumble:"verbose_name=Total Confirmed Cases"`
-	NewDeceased  int   `grumble:"verbose_name=Newly Deceased Cases;transient=true"`
-	Deceased     int   `grumble:"verbose_name=Total Deceased Cases"`
+	NewConfirmed int `grumble:"verbose_name=New Confirmed Cases;transient=true"`
+	Confirmed    int `grumble:"verbose_name=Total Confirmed Cases"`
+	NewDeceased  int `grumble:"verbose_name=Newly Deceased Cases;transient=true"`
+	Deceased     int `grumble:"verbose_name=Total Deceased Cases"`
 	Recovered    int
 	subs         map[string]*Sample
 	region       *Region
@@ -72,7 +72,7 @@ func OldestAndNewestSample(mgr *grumble.EntityManager) (oldest time.Time, newest
 
 func (sample *Sample) GetFlag(size string) (flagURL string) {
 	r := sample
-	for ; r.Parent() != nil; {
+	for r.Parent() != nil {
 		e, err := r.Parent().Self()
 		if err != nil {
 			return fmt.Sprintf("/image/flags/%s/%s.png", size, "aq")
@@ -122,12 +122,17 @@ func (sample *Sample) MakeListContext(req *handler.EntityRequest, data map[strin
 			log.Print(err)
 		}
 	}
+
 	data["date"] = d
+	data["Country"] = req.Values.Get("country")
+	data["Exclude"] = req.Values.Get("exclude")
+	data["Cases"] = req.Values.Get("cases")
+	data["Deaths"] = req.Values.Get("deaths")
+	data["Regression"] = req.Values.Get("regression")
 	dates := make([]time.Time, 0)
-	for d := oldest; d.Before(newest); d = d.AddDate(0,0,1) {
+	for d := oldest; d.Before(newest); d = d.AddDate(0, 0, 1) {
 		dates = append(dates, d)
 	}
 	data["dates"] = append(dates, newest)
 	return
 }
-

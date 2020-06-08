@@ -2,6 +2,9 @@
 import codecs
 import csv
 import json
+import os
+import os.path
+import re
 
 jurisdictions = {}
 
@@ -50,7 +53,7 @@ class JurisdictionEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)                
 
 
-with codecs.open('../iso3166.json', 'r', 'utf-8') as iso3166:
+with codecs.open('data/iso3166.json', 'r', 'utf-8') as iso3166:
     data = json.load(iso3166)
     countries = []
     for c in data:
@@ -64,8 +67,22 @@ with codecs.open('../iso3166.json', 'r', 'utf-8') as iso3166:
         for a in j.alias:
             jurisdictions[a] = j
 
+for f in os.listdir("data"):
+    if re.match(r"[A-Z]{2}.json", f):
+        print(f)
+        with codecs.open(os.path.join("data", f), 'r', 'utf-8') as c:
+            data = json.load(c)
+            j = Jurisdiction(data)
+            countries.append(j)
+            jurisdictions[j.name] = j
+            if j.alpha2 != "":
+                jurisdictions[j.alpha2] = j
+            if j.alpha3 != "":
+                jurisdictions[j.alpha3] = j
+            for a in j.alias:
+                jurisdictions[a] = j
 
-with open('../populations.json') as f:
+with open('data/populations.json') as f:
     data = json.load(f)
     for c in data:
         if c["Country_Code"] in jurisdictions:
@@ -78,14 +95,14 @@ with open('../populations.json') as f:
                 y -= 1
 
 us = jurisdictions["USA"]
-with open('../us_state_populations.json') as f:
+with open('data/us_state_populations.json') as f:
     data = json.load(f)
     for st in data:
         if st["name"] in us.sub:
             j = us.sub[st["name"]]
             j.population = st["population"]
 
-with open('../medianage.json') as f:
+with open('data/medianage.json') as f:
     data = json.load(f)
     for c in data:
         j = None
@@ -96,7 +113,7 @@ with open('../medianage.json') as f:
         if j is not None:
             j.medianage = c["medianage"]
 
-with open('../GDPperCapPPP.csv', newline='') as f:
+with open('data/GDPperCapPPP.csv', newline='') as f:
     reader = csv.DictReader(f)
     for row in reader:
         code = row["Country Code"]
@@ -111,5 +128,5 @@ with open('../GDPperCapPPP.csv', newline='') as f:
         else:
             print("Miss", code)
 
-with codecs.open("../countries.json", "w", "utf-8") as out:
+with codecs.open("countries.json", "w", "utf-8") as out:
     json.dump(countries, out, cls=JurisdictionEncoder, indent=2, ensure_ascii=False)

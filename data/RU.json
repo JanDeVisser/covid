@@ -1,0 +1,686 @@
+{
+    "name": "Russia",
+    "alias": [
+        "Russian Federation"
+    ],
+    "alpha-2": "RU",
+    "alpha-3": "RUS",
+    "country-code": "643",
+    "iso_3166-2": "ISO 3166-2:RU",
+    "region": "Europe",
+    "sub-region": "Eastern Europe",
+    "intermediate-region": "",
+    "region-code": "150",
+    "sub-region-code": "151",
+    "intermediate-region-code": "",
+    "regions": [
+        {
+            "name": "Adygeya, Respublika",
+            "alpha-2": "AD",
+            "alias": [
+                "Adygeja, Respublika",
+                "Adygea Republic"
+            ]
+        },
+        {
+            "name": "Altay, Respublika",
+            "alpha-2": "AL",
+            "alias": [
+                "Altaj, Respublika",
+                "Altai Republic"
+            ]
+        },
+        {
+            "name": "Altayskiy kray",
+            "alpha-3": "ALT",
+            "alias": [
+                "Altajskij kraj",
+                "Altai Krai"
+            ]
+        },
+        {
+            "name": "Amurskaya oblast'",
+            "alpha-3": "AMU",
+            "alias": [
+                "Amurskaja oblast'",
+                "Amur Oblast"
+            ]
+        },
+        {
+            "name": "Arkhangel'skaya oblast'",
+            "alias": [
+                "Arhangel'skaja oblast'",
+                "Arkhangelsk Oblast"
+            ],
+            "alpha-3": "ARK"
+        },
+        {
+            "name": "Astrakhanskaya oblast'",
+            "alias": [
+                "Astrahanskaja oblast'",
+                "Astrakhan Oblast"
+            ],
+            "alpha-3": "AST"
+        },
+        {
+            "name": "Bashkortostan, Respublika",
+            "alias": [
+                "Baškortostan, Respublika",
+                "Bashkortostan Republic"
+            ],
+            "alpha-2": "BA"
+        },
+        {
+            "name": "Belgorodskaya oblast'",
+            "alias": [
+                "Belgorodskaja oblast'",
+                "Belgorod Oblast"
+            ],
+            "alpha-3": "BEL"
+        },
+        {
+            "name": "Bryanskaya oblast'",
+            "alias": [
+                "Brjanskaja oblast'",
+                "Bryansk Oblast"
+            ],
+            "alpha-3": "BRY"
+        },
+        {
+            "name": "Buryatiya, Respublika",
+            "alias": [
+                "Burjatija, Respublika",
+                "Buryatia Republic"
+            ],
+            "alpha-2": "BU"
+        },
+        {
+            "name": "Chechenskaya Respublika",
+            "alias": [
+                "Čečenskaja Respublika",
+                "Chechen Republic"
+            ],
+            "alpha-2": "CE"
+        },
+        {
+            "name": "Chelyabinskaya oblast'",
+            "alias": [
+                "Čeljabinskaja oblast'",
+                "Chelyabinsk Oblast"
+            ],
+            "alpha-3": "CHE"
+        },
+        {
+            "name": "Chukotskiy avtonomnyy okrug",
+            "alias": [
+                "Čukotskij avtonomnyj okrug",
+                "Chukotka Autonomous Okrug"
+            ],
+            "alpha-3": "CHU"
+        },
+        {
+            "name": "Chuvashskaya Respublika",
+            "alias": [
+                "Čuvašskaja Respublika",
+                "Chuvashia Republic"
+            ],
+            "alpha-2": "CU"
+        },
+        {
+            "name": "Dagestan, Respublika",
+            "alias": [
+                "Dagestan, Respublika",
+                "Dagestan Republic"
+            ],
+            "alpha-2": "DA"
+        },
+        {
+            "name": "Ingushetiya, Respublika",
+            "alias": [
+                "Ingušetija, Respublika",
+                "Ingushetia Republic"
+            ],
+            "alpha-2": "IN"
+        },
+        {
+            "name": "Irkutskaya oblast'",
+            "alias": [
+                "Irkutskaja oblast'",
+                "Irkutsk Oblast"
+            ],
+            "alpha-3": "IRK"
+        },
+        {
+            "name": "Ivanovskaya oblast'",
+            "alias": [
+                "Ivanovskaja oblast'",
+                "Ivanovo Oblast"
+            ],
+            "alpha-3": "IVA"
+        },
+        {
+            "name": "Kabardino-Balkarskaya Respublika",
+            "alpha-2": "KB",
+            "alias": [
+                "Kabardino-Balkarskaja Respublika",
+                "Kabardino-Balkarian Republic"
+            ]
+        },
+        {
+            "name": "Kaliningradskaya oblast'",
+            "alias": [
+                "Kaliningradskaja oblast'",
+                "Kaliningrad Oblast"
+            ],
+            "alpha-3": "KGD"
+        },
+        {
+            "name": "Kalmykiya, Respublika",
+            "alias": [
+                "Kalmykija, Respublika",
+                "Kalmykia Republic"
+            ],
+            "alpha-2": "KL"
+        },
+        {
+            "name": "Kaluzhskaya oblast'",
+            "alias": [
+                "Kalužskaja oblast'",
+                "Kaluga Oblast"
+            ],
+            "alpha-3": "KLU"
+        },
+        {
+            "name": "Kamchatskiy kray",
+            "alias": [
+                "Kamčatskij kraj",
+                "Kamchatka Krai"
+            ],
+            "alpha-3": "KAM"
+        },
+        {
+            "name": "Karachayevo-Cherkesskaya Respublika",
+            "alpha-2": "KC",
+            "alias": [
+                "Karačaevo-Čerkesskaja Respublika",
+                "Karachay-Cherkess Republic"
+            ]
+        },
+        {
+            "name": "Kareliya, Respublika",
+            "alias": [
+                "Karelija, Respublika",
+                "Karelia Republic"
+            ],
+            "alpha-2": "KR"
+        },
+        {
+            "name": "Kemerovskaya oblast'",
+            "alias": [
+                "Kemerovskaja oblast'",
+                "Kemerovo Oblast"
+            ],
+            "alpha-3": "KEM"
+        },
+        {
+            "name": "Khabarovskiy kray",
+            "alias": [
+                "Habarovskij kraj",
+                "Khabarovsk Krai"
+            ],
+            "alpha-3": "KHA"
+        },
+        {
+            "name": "Khakasiya, Respublika",
+            "alias": [
+                "Hakasija, Respublika",
+                "Khakassia Republic"
+            ],
+            "alpha-2": "KK"
+        },
+        {
+            "name": "Khanty-Mansiyskiy avtonomnyy okrug",
+            "alpha-3": "KHM",
+            "alias": [
+                "Yugra",
+                "Jugra",
+                "Hanty-Mansijskij avtonomnyj okrug",
+                "Khanty-Mansi Autonomous Okrug"
+            ]
+        },
+        {
+            "name": "Kirovskaya oblast'",
+            "alias": [
+                "Kirovskaja oblast'",
+                "Kirov Oblast"
+            ],
+            "alpha-3": "KIR"
+        },
+        {
+            "name": "Komi, Respublika",
+            "alias": [
+                "Komi, Respublika",
+                "Komi Republic"
+            ],
+            "alpha-2": "KO"
+        },
+        {
+            "name": "Kostromskaya oblast'",
+            "alias": [
+                "Kostromskaja oblast'",
+                "Kostroma Oblast"
+            ],
+            "alpha-3": "KOS"
+        },
+        {
+            "name": "Krasnodarskiy kray",
+            "alias": [
+                "Krasnodarskij kraj",
+                "Krasnodar Krai"
+            ],
+            "alpha-3": "KDA"
+        },
+        {
+            "name": "Krasnoyarskiy kray",
+            "alias": [
+                "Krasnojarskij kraj",
+                "Krasnoyarsk Krai"
+            ],
+            "alpha-3": "KYA"
+        },
+        {
+            "name": "Kurganskaya oblast'",
+            "alias": [
+                "Kurganskaja oblast'",
+                "Kurgan Oblast"
+            ],
+            "alpha-3": "KGN"
+        },
+        {
+            "name": "Kurskaya oblast'",
+            "alias": [
+                "Kurskaja oblast'",
+                "Kursk Oblast"
+            ],
+            "alpha-3": "KRS"
+        },
+        {
+            "name": "Leningradskaya oblast'",
+            "alias": [
+                "Leningradskaja oblast'",
+                "Leningrad Oblast"
+            ],
+            "alpha-3": "LEN"
+        },
+        {
+            "name": "Lipetskaya oblast'",
+            "alias": [
+                "Lipeckaja oblast'",
+                "Lipetsk Oblast"
+            ],
+            "alpha-3": "LIP"
+        },
+        {
+            "name": "Magadanskaya oblast'",
+            "alias": [
+                "Magadanskaja oblast'",
+                "Magadan Oblast"
+            ],
+            "alpha-3": "MAG"
+        },
+        {
+            "name": "Mariy El, Respublika",
+            "alias": [
+                "Marij Èl, Respublika",
+                "Mari El Republic"
+            ],
+            "alpha-2": "ME"
+        },
+        {
+            "name": "Mordoviya, Respublika",
+            "alias": [
+                "Mordovija, Respublika",
+                "Mordovia Republic"
+            ],
+            "alpha-2": "MO"
+        },
+        {
+            "name": "Moskovskaya oblast'",
+            "alias": [
+                "Moskovskaja oblast'",
+                "Moscow Oblast"
+            ],
+            "alpha-3": "MOS"
+        },
+        {
+            "name": "Moskva",
+            "alias": [
+                "Moskva",
+                "Moscow"
+            ],
+            "alpha-3": "MOW"
+        },
+        {
+            "name": "Murmanskaya oblast'",
+            "alias": [
+                "Murmanskaja oblast'",
+                "Murmansk Oblast"
+            ],
+            "alpha-3": "MUR"
+        },
+        {
+            "name": "Nenetskiy avtonomnyy okrug",
+            "alias": [
+                "Neneckij avtonomnyj okrug",
+                "Nenets Autonomous Okrug"
+            ],
+            "alpha-3": "NEN"
+        },
+        {
+            "name": "Nizhegorodskaya oblast'",
+            "alias": [
+                "Nižegorodskaja oblast'",
+                "Nizhny Novgorod Oblast"
+            ],
+            "alpha-3": "NIZ"
+        },
+        {
+            "name": "Novgorodskaya oblast'",
+            "alias": [
+                "Novgorodskaja oblast'",
+                "Novgorod Oblast"
+            ],
+            "alpha-3": "NGR"
+        },
+        {
+            "name": "Novosibirskaya oblast'",
+            "alias": [
+                "Novosibirskaja oblast'",
+                "Novosibirsk Oblast"
+            ],
+            "alpha-3": "NVS"
+        },
+        {
+            "name": "Omskaya oblast'",
+            "alias": [
+                "Omskaja oblast'",
+                "Omsk Oblast"
+            ],
+            "alpha-3": "OMS"
+        },
+        {
+            "name": "Orenburgskaya oblast'",
+            "alias": [
+                "Orenburgskaja oblast'",
+                "Orenburg Oblast"
+            ],
+            "alpha-3": "ORE"
+        },
+        {
+            "name": "Orlovskaya oblast'",
+            "alias": [
+                "Orlovskaja oblast'",
+                "Orel Oblast"
+            ],
+            "alpha-3": "ORL"
+        },
+        {
+            "name": "Penzenskaya oblast'",
+            "alias": [
+                "Penzenskaja oblast'",
+                "Penza Oblast"
+            ],
+            "alpha-3": "PNZ"
+        },
+        {
+            "name": "Permskiy kray",
+            "alias": [
+                "Permskij kraj",
+                "Perm Krai"
+            ],
+            "alpha-3": "PER"
+        },
+        {
+            "name": "Primorskiy kray",
+            "alias": [
+                "Primorskij kraj",
+                "Primorsky Krai"
+            ],
+            "alpha-3": "PRI"
+        },
+        {
+            "name": "Pskovskaya oblast'",
+            "alias": [
+                "Pskovskaja oblast'",
+                "Pskov Oblast"
+            ],
+            "alpha-3": "PSK"
+        },
+        {
+            "name": "Rostovskaya oblast'",
+            "alias": [
+                "Rostovskaja oblast'",
+                "Rostov Oblast"
+            ],
+            "alpha-3": "ROS"
+        },
+        {
+            "name": "Ryazanskaya oblast'",
+            "alias": [
+                "Rjazanskaja oblast'",
+                "Ryazan Oblast"
+            ],
+            "alpha-3": "RYA"
+        },
+        {
+            "name": "Saha, Respublika",
+            "alpha-2": "SA",
+            "alias": [
+                "Jakutija",
+                "Sakha, Respublika",
+                "Yakutiya",
+                "Sakha (Yakutiya) Republic"
+            ]
+        },
+        {
+            "name": "Sakhalinskaya oblast'",
+            "alias": [
+                "Sahalinskaja oblast'",
+                "Sakhalin Oblast"
+            ],
+            "alpha-3": "SAK"
+        },
+        {
+            "name": "Samarskaya oblast'",
+            "alias": [
+                "Samarskaja oblast'",
+                "Samara Oblast"
+            ],
+            "alpha-3": "SAM"
+        },
+        {
+            "name": "Sankt-Peterburg",
+            "alias": ["Saint Petersburg"],
+            "alpha-3": "SPE"
+        },
+        {
+            "name": "Saratovskaya oblast'",
+            "alias": [
+                "Saratovskaja oblast'",
+                "Saratov Oblast"
+            ],
+            "alpha-3": "SAR"
+        },
+        {
+            "name": "Severnaya Osetiya, Respublika",
+            "alpha-2": "SE",
+            "alias": [
+                "Alaniya",
+                "Respublika Severnaya Osetiya Alaniya",
+                "Alanija",
+                "Respublika Severnaja Osetija-Alanija",
+                "North Ossetia - Alania Republic"
+            ]
+        },
+        {
+            "name": "Smolenskaya oblast'",
+            "alias": [
+                "Smolenskaja oblast'",
+                "Smolensk Oblast"
+            ],
+            "alpha-3": "SMO"
+        },
+        {
+            "name": "Stavropol'skiy kray",
+            "alias": [
+                "Stavropol'skij kraj",
+                "Stavropol Krai"
+            ],
+            "alpha-3": "STA"
+        },
+        {
+            "name": "Sverdlovskaya oblast'",
+            "alias": [
+                "Sverdlovskaja oblast'",
+                "Sverdlovsk Oblast"
+            ],
+            "alpha-3": "SVE"
+        },
+        {
+            "name": "Tambovskaya oblast'",
+            "alias": [
+                "Tambovskaja oblast'",
+                "Tambov Oblast"
+            ],
+            "alpha-3": "TAM"
+        },
+        {
+            "name": "Tatarstan, Respublika",
+            "alias": [
+                "Tatarstan, Respublika",
+                "Tatarstan Republic"
+            ],
+            "alpha-2": "TA"
+        },
+        {
+            "name": "Tomskaya oblast'",
+            "alias": [
+                "Tomskaja oblast'",
+                "Tomsk Oblast"
+            ],
+            "alpha-3": "TOM"
+        },
+        {
+            "name": "Tul'skaya oblast'",
+            "alias": [
+                "Tul'skaja oblast'",
+                "Tula Oblast"
+            ],
+            "alpha-3": "TUL"
+        },
+        {
+            "name": "Tverskaya oblast'",
+            "alias": [
+                "Tverskaja oblast'",
+                "Tver Oblast"
+            ],
+            "alpha-3": "TVE"
+        },
+        {
+            "name": "Tyumenskaya oblast'",
+            "alias": [
+                "Tjumenskaja oblast'",
+                "Tyumen Oblast"
+            ],
+            "alpha-3": "TYU"
+        },
+        {
+            "name": "Tyva, Respublika",
+            "alpha-2": "TY",
+            "alias": [
+                "Tuva",
+                "Tyva Republic"
+            ]
+        },
+        {
+            "name": "Udmurtskaya Respublika",
+            "alias": [
+                "Udmurtskaja Respublika",
+                "Udmurt Republic"
+            ],
+            "alpha-2": "UD"
+        },
+        {
+            "name": "Ul'yanovskaya oblast'",
+            "alias": [
+                "Ul'janovskaja oblast'",
+                "Ulyanovsk Oblast"
+            ],
+            "alpha-3": "ULY"
+        },
+        {
+            "name": "Vladimirskaya oblast'",
+            "alias": [
+                "Vladimirskaja oblast'",
+                "Vladimir Oblast"
+            ],
+            "alpha-3": "VLA"
+        },
+        {
+            "name": "Volgogradskaya oblast'",
+            "alias": [
+                "Volgogradskaja oblast'",
+                "Volgograd Oblast"
+            ],
+            "alpha-3": "VGG"
+        },
+        {
+            "name": "Vologodskaya oblast'",
+            "alias": [
+                "Vologodskaja oblast'",
+                "Vologda Oblast"
+            ],
+            "alpha-3": "VLG"
+        },
+        {
+            "name": "Voronezhskaya oblast'",
+            "alias": [
+                "Voronežskaja oblast'",
+                "Voronezh Oblast"
+            ],
+            "alpha-3": "VOR"
+        },
+        {
+            "name": "Yamalo-Nenetskiy avtonomnyy okrug",
+            "alpha-3": "YAN",
+            "alias": [
+                "Jamalo-Neneckij avtonomnyj okrug",
+                "Yamalo-Nenets Autonomous Okrug"
+            ]
+        },
+        {
+            "name": "Yaroslavskaya oblast'",
+            "alias": [
+                "Jaroslavskaja oblast'",
+                "Yaroslavl Oblast"
+            ],
+            "alpha-3": "YAR"
+        },
+        {
+            "name": "Yevreyskaya avtonomnaya oblast'",
+            "alpha-3": "YEV",
+            "alias": [
+                "Evrejskaja avtonomnaja oblast'",
+                "Jewish Autonomous Okrug"
+            ]
+        },
+        {
+            "name": "Zabaykal'skiy kray",
+            "alias": [
+                "Zabajkal'skij kraj",
+                "Zabaykalsky Krai"
+            ],
+            "alpha-3": "ZAB"
+        }
+    ]
+}

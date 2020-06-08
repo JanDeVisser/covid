@@ -1,0 +1,276 @@
+{
+  "name": "Japan",
+  "alpha-2": "JP",
+  "alpha-3": "JPN",
+  "country-code": "392",
+  "iso_3166-2": "ISO 3166-2:JP",
+  "region": "Asia",
+  "sub-region": "Eastern Asia",
+  "intermediate-region": "",
+  "region-code": "142",
+  "sub-region-code": "030",
+  "intermediate-region-code": "",
+  "regions": [
+    {
+      "name": "Aiti",
+      "alpha-2": "23",
+      "alias": [
+        "Aichi"
+      ]
+    },
+    {
+      "name": "Akita",
+      "alpha-2": "05"
+    },
+    {
+      "name": "Aomori",
+      "alpha-2": "02"
+    },
+    {
+      "name": "Ehime",
+      "alpha-2": "38"
+    },
+    {
+      "name": "Gihu",
+      "alpha-2": "21",
+      "alias": [
+        "Gifu"
+      ]
+    },
+    {
+      "name": "Gunma",
+      "alpha-2": "10"
+    },
+    {
+      "name": "Hirosima",
+      "alpha-2": "34",
+      "alias": [
+        "Hiroshima"
+      ]
+    },
+    {
+      "name": "Hokkaidô",
+      "alpha-2": "01",
+      "alias": [
+        "Hokkaido"
+      ]
+    },
+    {
+      "name": "Hukui",
+      "alpha-2": "18",
+      "alias": [
+        "Fukui"
+      ]
+    },
+    {
+      "name": "Hukuoka",
+      "alpha-2": "40",
+      "alias": [
+        "Fukuoka"
+      ]
+    },
+    {
+      "name": "Hukusima",
+      "alpha-2": "07",
+      "alias": [
+        "Fukushima"
+      ]
+    },
+    {
+      "name": "Hyôgo",
+      "alpha-2": "28",
+      "alias": [
+        "Hyogo"
+      ]
+    },
+    {
+      "name": "Ibaraki",
+      "alpha-2": "08"
+    },
+    {
+      "name": "Isikawa",
+      "alpha-2": "17",
+      "alias": [
+        "Ishikawa"
+      ]
+    },
+    {
+      "name": "Iwate",
+      "alpha-2": "03"
+    },
+    {
+      "name": "Kagawa",
+      "alpha-2": "37"
+    },
+    {
+      "name": "Kagosima",
+      "alpha-2": "46",
+      "alias": [
+        "Kagoshima"
+      ]
+    },
+    {
+      "name": "Kanagawa",
+      "alpha-2": "14"
+    },
+    {
+      "name": "Kôti",
+      "alpha-2": "39",
+      "alias": [
+        "Kochi"
+      ]
+    },
+    {
+      "name": "Kumamoto",
+      "alpha-2": "43"
+    },
+    {
+      "name": "Kyôto",
+      "alpha-2": "26",
+      "alias": [
+        "Kyoto"
+      ]
+    },
+    {
+      "name": "Mie",
+      "alpha-2": "24"
+    },
+    {
+      "name": "Miyagi",
+      "alpha-2": "04"
+    },
+    {
+      "name": "Miyazaki",
+      "alpha-2": "45"
+    },
+    {
+      "name": "Nagano",
+      "alpha-2": "20"
+    },
+    {
+      "name": "Nagasaki",
+      "alpha-2": "42"
+    },
+    {
+      "name": "Nara",
+      "alpha-2": "29"
+    },
+    {
+      "name": "Niigata",
+      "alpha-2": "15"
+    },
+    {
+      "name": "Ôita",
+      "alpha-2": "44",
+      "alias": [
+        "Oita"
+      ]
+    },
+    {
+      "name": "Okayama",
+      "alpha-2": "33"
+    },
+    {
+      "name": "Okinawa",
+      "alpha-2": "47"
+    },
+    {
+      "name": "Ôsaka",
+      "alpha-2": "27",
+      "alias": [
+        "Osaka"
+      ]
+    },
+    {
+      "name": "Saga",
+      "alpha-2": "41"
+    },
+    {
+      "name": "Saitama",
+      "alpha-2": "11"
+    },
+    {
+      "name": "Siga",
+      "alpha-2": "25",
+      "alias": [
+        "Shiga"
+      ]
+    },
+    {
+      "name": "Simane",
+      "alpha-2": "32",
+      "alias": [
+        "Shimane"
+      ]
+    },
+    {
+      "name": "Sizuoka",
+      "alpha-2": "22",
+      "alias": [
+        "Shizuoka"
+      ]
+    },
+    {
+      "name": "Tiba",
+      "alpha-2": "12",
+      "alias": [
+        "Chiba"
+      ]
+    },
+    {
+      "name": "Totigi",
+      "alpha-2": "09",
+      "alias": [
+        "Tochigi"
+      ]
+    },
+    {
+      "name": "Tokusima",
+      "alpha-2": "36",
+      "alias": [
+        "Tokushima"
+      ]
+    },
+    {
+      "name": "Tôkyô",
+      "alpha-2": "13",
+      "alias": [
+        "Tokyo"
+      ]
+    },
+    {
+      "name": "Tottori",
+      "alpha-2": "31"
+    },
+    {
+      "name": "Toyama",
+      "alpha-2": "16"
+    },
+    {
+      "name": "Wakayama",
+      "alpha-2": "30"
+    },
+    {
+      "name": "Yamagata",
+      "alpha-2": "06"
+    },
+    {
+      "name": "Yamaguti",
+      "alpha-2": "35",
+      "alias": [
+        "Yamaguchi"
+      ]
+    },
+    {
+      "name": "Yamanasi",
+      "alpha-2": "19",
+      "alias": [
+        "Yamanashi"
+      ]
+    },
+    {
+      "name": "Port Quarantine",
+      "alpha-2": "PQ"
+    }
+  ]
+}
