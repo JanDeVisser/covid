@@ -1,0 +1,191 @@
+{
+    "name": "Colombia",
+    "alpha-2": "CO",
+    "alpha-3": "COL",
+    "country-code": "170",
+    "iso_3166-2": "ISO 3166-2:CO",
+    "region": "Americas",
+    "sub-region": "Latin America and the Caribbean",
+    "intermediate-region": "South America",
+    "region-code": "019",
+    "sub-region-code": "419",
+    "intermediate-region-code": "005",
+    "regions": [
+        {
+            "name": "Distrito Capital de Bogotá",
+            "alpha-3": "DC",
+            "alias": [
+                "Bogotá",
+                "Bogota",
+                "Capital District"
+            ]
+        },
+        {
+            "name": "Amazonas",
+            "alpha-3": "AMA"
+        },
+        {
+            "name": "Antioquia",
+            "alpha-3": "ANT"
+        },
+        {
+            "name": "Arauca",
+            "alpha-3": "ARA"
+        },
+        {
+            "name": "Atlántico",
+            "alpha-3": "ATL",
+            "alias": [
+                "Atlantico"
+            ]
+        },
+        {
+            "name": "Bolívar",
+            "alpha-3": "BOL",
+            "alias": [
+                "Bolivar"
+            ]
+        },
+        {
+            "name": "Boyacá",
+            "alpha-3": "BOY",
+            "alias": [
+                "Boyaca"
+            ]
+        },
+        {
+            "name": "Caldas",
+            "alpha-3": "CAL",
+            "alias": [
+                " "
+            ]
+        },
+        {
+            "name": "Caquetá",
+            "alpha-3": "CAQ",
+            "alias": [
+                "Caqueta"
+            ]
+        },
+        {
+            "name": "Casanare",
+            "alpha-3": "CAS"
+        },
+        {
+            "name": "Cauca",
+            "alpha-3": "CAU"
+        },
+        {
+            "name": "Cesar",
+            "alpha-3": "CES"
+        },
+        {
+            "name": "Córdoba",
+            "alpha-3": "COR",
+            "alias": [
+                "Cordoba"
+            ]
+        },
+        {
+            "name": "Cundinamarca",
+            "alpha-3": "CUN"
+        },
+        {
+            "name": "Chocó",
+            "alpha-3": "CHO",
+            "alias": [
+                "Choco"
+            ]
+        },
+        {
+            "name": "Guainía",
+            "alpha-3": "GUA",
+            "alias": [
+                "Guainia"
+            ]
+        },
+        {
+            "name": "Guaviare",
+            "alpha-3": "GUV"
+        },
+        {
+            "name": "Huila",
+            "alpha-3": "HUI"
+        },
+        {
+            "name": "La Guajira",
+            "alpha-3": "LAG"
+        },
+        {
+            "name": "Magdalena",
+            "alpha-3": "MAG"
+        },
+        {
+            "name": "Meta",
+            "alpha-3": "MET"
+        },
+        {
+            "name": "Nariño",
+            "alpha-3": "NAR",
+            "alias": [
+                "Narino"
+            ]
+        },
+        {
+            "name": "Norte de Santander",
+            "alpha-3": "NSA"
+        },
+        {
+            "name": "Putumayo",
+            "alpha-3": "PUT"
+        },
+        {
+            "name": "Quindío",
+            "alpha-3": "QUI",
+            "alias": [
+                "Quindio"
+            ]
+        },
+        {
+            "name": "Risaralda",
+            "alpha-3": "RIS"
+        },
+        {
+            "name": "San Andrés, Providencia y Santa Catalina",
+            "alpha-3": "SAP",
+            "alias": [
+                "San Andres y Providencia",
+                "San Andres",
+                "San Andrés y Providencia",
+                "San Andrés"
+            ]
+        },
+        {
+            "name": "Santander",
+            "alpha-3": "SAN"
+        },
+        {
+            "name": "Sucre",
+            "alpha-3": "SUC"
+        },
+        {
+            "name": "Tolima",
+            "alpha-3": "TOL"
+        },
+        {
+            "name": "Valle del Cauca",
+            "alpha-3": "VAC"
+        },
+        {
+            "name": "Vaupés",
+            "alpha-3": "VAU",
+            "alias": [
+                "Vaupes"
+            ]
+        },
+        {
+            "name": "Vichada",
+            "alpha-3": "VID"
+        }
+    ]
+}

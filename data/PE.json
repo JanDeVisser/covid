@@ -1,0 +1,227 @@
+{
+    "name": "Peru",
+    "alpha-2": "PE",
+    "alpha-3": "PER",
+    "country-code": "604",
+    "iso_3166-2": "ISO 3166-2:PE",
+    "region": "Americas",
+    "sub-region": "Latin America and the Caribbean",
+    "intermediate-region": "South America",
+    "region-code": "019",
+    "sub-region-code": "419",
+    "intermediate-region-code": "005",
+    "regions": [
+        {
+            "alpha-3": "LMA",
+            "name": "Municipalidad Metropolitana de Lima",
+            "alias": [
+                "Lima llaqta suyu",
+                "Lima hatun llaqta"
+            ]
+        },
+        {
+            "alpha-3": "AMA",
+            "name": "Amazonas",
+            "alias": [
+                "Amarumayu",
+                "Amasunu"
+            ]
+        },
+        {
+            "alpha-3": "ANC",
+            "name": "Ancash",
+            "alias": [
+                "Anqash",
+                "Ankashu"
+            ]
+        },
+        {
+            "alpha-3": "APU",
+            "name": "Apurímac",
+            "alias": [
+                "Apurimac",
+                "Apurimaq",
+                "Apurimaq"
+            ]
+        },
+        {
+            "alpha-3": "ARE",
+            "name": "Arequipa",
+            "alias": [
+                "Ariqipa",
+                "Arikipa"
+            ]
+        },
+        {
+            "alpha-3": "AYA",
+            "name": "Ayacucho",
+            "alias": [
+                "Ayakuchu",
+                "Ayaquchu"
+            ]
+        },
+        {
+            "alpha-3": "CAJ",
+            "name": "Cajamarca",
+            "alias": [
+                "Kashamarka",
+                "Qajamarka"
+            ]
+        },
+        {
+            "alpha-3": "CUS",
+            "name": "Cusco",
+            "alias": [
+                "Cuzco",
+                "Qusqu",
+                "Kusku"
+            ]
+        },
+        {
+            "alpha-3": "CAL",
+            "name": "El Callao",
+            "alias": [
+                "Callao",
+                "Qallaw",
+                "Kallao"
+            ]
+        },
+        {
+            "alpha-3": "HUV",
+            "name": "Huancavelica",
+            "alias": [
+                "Wankawillka",
+                "Wankawelika"
+            ]
+        },
+        {
+            "alpha-3": "HUC",
+            "name": "Huánuco",
+            "alias": [
+                "Huanuco",
+                "Wanuku",
+                "Wanuku"
+            ]
+        },
+        {
+            "alpha-3": "ICA",
+            "name": "Ica",
+            "alias": [
+                "Ika",
+                "Ika"
+            ]
+        },
+        {
+            "alpha-3": "JUN",
+            "name": "Junín",
+            "alias": [
+                "Hunin",
+                "Junin"
+            ]
+        },
+        {
+            "alpha-3": "LAL",
+            "name": "La Libertad",
+            "alias": [
+                "Qispi kay",
+                "La Libertad"
+            ]
+        },
+        {
+            "alpha-3": "LAM",
+            "name": "Lambayeque",
+            "alias": [
+                "Lampalliqi",
+                "Lambayeque"
+            ]
+        },
+        {
+            "alpha-3": "LIM",
+            "name": "Lima",
+            "alias": [
+                "Lima",
+                "Lima"
+            ]
+        },
+        {
+            "alpha-3": "LOR",
+            "name": "Loreto",
+            "alias": [
+                "Luritu",
+                "Luritu"
+            ]
+        },
+        {
+            "alpha-3": "MDD",
+            "name": "Madre de Dios",
+            "alias": [
+                "Mayutata",
+                "Madre de Dios"
+            ]
+        },
+        {
+            "alpha-3": "MOQ",
+            "name": "Moquegua",
+            "alias": [
+                "Muqiwa",
+                "Moqwegwa"
+            ]
+        },
+        {
+            "alpha-3": "PAS",
+            "name": "Pasco",
+            "alias": [
+                "Pasqu",
+                "Pasqu"
+            ]
+        },
+        {
+            "alpha-3": "PIU",
+            "name": "Piura",
+            "alias": [
+                "Piwra",
+                "Piura"
+            ]
+        },
+        {
+            "alpha-3": "PUN",
+            "name": "Puno",
+            "alias": [
+                "Punu",
+                "Puno"
+            ]
+        },
+        {
+            "alpha-3": "SAM",
+            "name": "San Martín",
+            "alias": [
+                "San Martin",
+                "San Martín"
+            ]
+        },
+        {
+            "alpha-3": "TAC",
+            "name": "Tacna",
+            "alias": [
+                "Taqna",
+                "Takna"
+            ]
+        },
+        {
+            "alpha-3": "TUM",
+            "name": "Tumbes",
+            "alias": [
+                "Tumpis",
+                "Tumbes"
+            ]
+        },
+        {
+            "alpha-3": "UCA",
+            "name": "Ucayali",
+            "alias": [
+                "Ukayali",
+                "Ukayali"
+            ]
+        }
+    ]
+}
