@@ -211,12 +211,16 @@
       },
       {
         "name": "Australian Capital Territory",
-        "alias": ["Jervis Bay Territory"],
+        "alias": [
+          "Jervis Bay Territory"
+        ],
         "alpha-3": "ACT"
       },
       {
         "name": "External Territories",
-        "alias": ["External territories"],
+        "alias": [
+          "External territories"
+        ],
         "alpha-3": "EXT"
       }
     ]
@@ -249,7 +253,10 @@
   },
   {
     "name": "Bahamas",
-    "alias": ["The Bahamas", "Bahamas, The"],
+    "alias": [
+      "The Bahamas",
+      "Bahamas, The"
+    ],
     "alpha-2": "BS",
     "alpha-3": "BHS",
     "country-code": "044",
@@ -460,7 +467,9 @@
     "region-code": "019",
     "sub-region-code": "419",
     "intermediate-region-code": "005",
-    "alias": ["Brasil"],
+    "alias": [
+      "Brasil"
+    ],
     "regions": [
       {
         "alpha-2": "AC",
@@ -477,7 +486,9 @@
       {
         "alpha-2": "AP",
         "name": "Amapá",
-        "alias": ["Amapa"]
+        "alias": [
+          "Amapa"
+        ]
       },
       {
         "alpha-2": "BA",
@@ -486,7 +497,9 @@
       {
         "alpha-2": "CE",
         "name": "Ceará",
-        "alias": ["Ceara"]
+        "alias": [
+          "Ceara"
+        ]
       },
       {
         "alpha-2": "DF",
@@ -495,17 +508,23 @@
       {
         "alpha-2": "ES",
         "name": "Espírito Santo",
-        "alias": ["Espirito Santo"]
+        "alias": [
+          "Espirito Santo"
+        ]
       },
       {
         "alpha-2": "GO",
         "name": "Goiás",
-        "alias": ["Goias"]
+        "alias": [
+          "Goias"
+        ]
       },
       {
         "alpha-2": "MA",
         "name": "Maranhão",
-        "alias": ["Maranhao"]
+        "alias": [
+          "Maranhao"
+        ]
       },
       {
         "alpha-2": "MG",
@@ -522,12 +541,16 @@
       {
         "alpha-2": "PA",
         "name": "Pará",
-        "alias": ["Para"]
+        "alias": [
+          "Para"
+        ]
       },
       {
         "alpha-2": "PB",
         "name": "Paraíba",
-        "alias": ["Paraiba"]
+        "alias": [
+          "Paraiba"
+        ]
       },
       {
         "alpha-2": "PE",
@@ -536,12 +559,16 @@
       {
         "alpha-2": "PI",
         "name": "Piauí",
-        "alias": ["Piaui"]
+        "alias": [
+          "Piaui"
+        ]
       },
       {
         "alpha-2": "PR",
         "name": "Paraná",
-        "alias": ["Parana"]
+        "alias": [
+          "Parana"
+        ]
       },
       {
         "alpha-2": "RJ",
@@ -554,7 +581,9 @@
       {
         "alpha-2": "RO",
         "name": "Rondônia",
-        "alias": ["Rondonia"]
+        "alias": [
+          "Rondonia"
+        ]
       },
       {
         "alpha-2": "RR",
@@ -575,7 +604,9 @@
       {
         "alpha-2": "SP",
         "name": "São Paulo",
-        "alias": ["Sao Paulo"]
+        "alias": [
+          "Sao Paulo"
+        ]
       },
       {
         "alpha-2": "TO",
@@ -653,7 +684,9 @@
   },
   {
     "name": "Cabo Verde",
-    "alias": ["Cape Verde"],
+    "alias": [
+      "Cape Verde"
+    ],
     "alpha-2": "CV",
     "alpha-3": "CPV",
     "country-code": "132",
@@ -754,7 +787,9 @@
       },
       {
         "name": "Yukon Territory",
-        "alias": ["Yukon"],
+        "alias": [
+          "Yukon"
+        ],
         "alpha-2": "YT"
       }
     ]
@@ -829,12 +864,18 @@
       {
         "name": "Arica y Parinacota",
         "alpha-2": "AP",
-        "alias": ["Arica and Parinacota"]
+        "alias": [
+          "Arica and Parinacota"
+        ]
       },
       {
         "name": "La Araucanía",
         "alpha-2": "AR",
-        "alias": ["La Araucania", "Araucanía", "Araucania"]
+        "alias": [
+          "La Araucania",
+          "Araucanía",
+          "Araucania"
+        ]
       },
       {
         "name": "Atacama",
@@ -843,7 +884,9 @@
       {
         "name": "Biobío",
         "alpha-2": "BI",
-        "alias": ["Biobio"]
+        "alias": [
+          "Biobio"
+        ]
       },
       {
         "name": "Coquimbo",
@@ -852,7 +895,10 @@
       {
         "name": "Libertador General Bernardo O'Higgins",
         "alpha-2": "LI",
-        "alias": ["O'Higgins", "OHiggins"]
+        "alias": [
+          "O'Higgins",
+          "OHiggins"
+        ]
       },
       {
         "name": "Los Lagos",
@@ -861,7 +907,9 @@
       {
         "name": "Los Ríos",
         "alpha-2": "LR",
-        "alias": ["Los Rios"]
+        "alias": [
+          "Los Rios"
+        ]
       },
       {
         "name": "Magallanes",
@@ -874,22 +922,31 @@
       {
         "name": "Ñuble",
         "alpha-2": "NB",
-        "alias": ["Nuble"]
+        "alias": [
+          "Nuble"
+        ]
       },
       {
         "name": "Región Metropolitana de Santiago",
         "alpha-2": "RM",
-        "alias": ["Santiago", "Metropolitana"]
+        "alias": [
+          "Santiago",
+          "Metropolitana"
+        ]
       },
       {
         "name": "Tarapacá",
         "alpha-2": "TA",
-        "alias": ["Tarapaca"]
+        "alias": [
+          "Tarapaca"
+        ]
       },
       {
         "name": "Valparaíso",
         "alpha-2": "VS",
-        "alias": ["Valparaiso"]
+        "alias": [
+          "Valparaiso"
+        ]
       }
     ]
   },
@@ -1110,7 +1167,11 @@
   },
   {
     "name": "Congo",
-    "alias": ["Congo (Brazzaville)", "Republic of the Congo", "Congo, Republic of the"],
+    "alias": [
+      "Congo (Brazzaville)",
+      "Republic of the Congo",
+      "Congo, Republic of the"
+    ],
     "alpha-2": "CG",
     "alpha-3": "COG",
     "country-code": "178",
@@ -1214,7 +1275,9 @@
   },
   {
     "name": "Curaçao",
-    "alias": ["Curacao"],
+    "alias": [
+      "Curacao"
+    ],
     "alpha-2": "CW",
     "alpha-3": "CUW",
     "country-code": "531",
@@ -1242,7 +1305,9 @@
   },
   {
     "name": "Czechia",
-    "alias": ["Czech Republic"],
+    "alias": [
+      "Czech Republic"
+    ],
     "alpha-2": "CZ",
     "alpha-3": "CZE",
     "country-code": "203",
@@ -1412,7 +1477,11 @@
   },
   {
     "name": "Falkland Islands (Malvinas)",
-    "alias": ["Falkland Islands", "Falklands", "Falkland Islands (Islas Malvinas)"],
+    "alias": [
+      "Falkland Islands",
+      "Falklands",
+      "Falkland Islands (Islas Malvinas)"
+    ],
     "alpha-2": "FK",
     "alpha-3": "FLK",
     "country-code": "238",
@@ -1480,7 +1549,9 @@
   },
   {
     "name": "French Guiana",
-    "alias": ["Fench Guiana"],
+    "alias": [
+      "Fench Guiana"
+    ],
     "alpha-2": "GF",
     "alpha-3": "GUF",
     "country-code": "254",
@@ -1576,12 +1647,17 @@
     "regions": [
       {
         "name": "Baden-Württemberg",
-        "alias": ["Baden-Wuerttemberg","Baden-Wurttemberg"],
+        "alias": [
+          "Baden-Wuerttemberg",
+          "Baden-Wurttemberg"
+        ],
         "alpha-2": "BW"
       },
       {
         "name": "Bayern",
-        "alias": ["Bavaria"],
+        "alias": [
+          "Bavaria"
+        ],
         "alpha-2": "BY"
       },
       {
@@ -1638,7 +1714,10 @@
       },
       {
         "name": "Thüringen",
-        "alias": ["Thuringen","Thueringen"],
+        "alias": [
+          "Thuringen",
+          "Thueringen"
+        ],
         "alpha-2": "TH"
       }
     ]
@@ -1827,7 +1906,9 @@
   },
   {
     "name": "Holy See",
-    "alias": ["Vatican City"],
+    "alias": [
+      "Vatican City"
+    ],
     "alpha-2": "VA",
     "alpha-3": "VAT",
     "country-code": "336",
@@ -1854,7 +1935,9 @@
   },
   {
     "name": "Hong Kong",
-    "alias": ["Hong Kong SAR"],
+    "alias": [
+      "Hong Kong SAR"
+    ],
     "alpha-2": "HK",
     "alpha-3": "HKG",
     "country-code": "344",
@@ -1890,19 +1973,6 @@
     "intermediate-region": "",
     "region-code": "150",
     "sub-region-code": "154",
-    "intermediate-region-code": ""
-  },
-  {
-    "name": "India",
-    "alpha-2": "IN",
-    "alpha-3": "IND",
-    "country-code": "356",
-    "iso_3166-2": "ISO 3166-2:IN",
-    "region": "Asia",
-    "sub-region": "Southern Asia",
-    "intermediate-region": "",
-    "region-code": "142",
-    "sub-region-code": "034",
     "intermediate-region-code": ""
   },
   {
@@ -1950,7 +2020,9 @@
   },
   {
     "name": "Ireland",
-    "alias": ["Republic of Ireland"],
+    "alias": [
+      "Republic of Ireland"
+    ],
     "alpha-2": "IE",
     "alpha-3": "IRL",
     "country-code": "372",
@@ -2021,8 +2093,9 @@
         "name": "Emilia-Romagna",
         "alpha-2": "45"
       },
-      {"name": "Lazio",
-      "alpha-2": "62"
+      {
+        "name": "Lazio",
+        "alpha-2": "62"
       },
       {
         "name": "Liguria",
@@ -2031,7 +2104,9 @@
       {
         "name": "Lombardia",
         "alpha-2": "25",
-        "alias": ["Lombardy"]
+        "alias": [
+          "Lombardy"
+        ]
       },
       {
         "name": "Marche",
@@ -2044,17 +2119,23 @@
       {
         "name": "Piemonte",
         "alpha-2": "21",
-        "alias": ["Piedmont"]
+        "alias": [
+          "Piedmont"
+        ]
       },
       {
         "name": "Puglia",
         "alpha-2": "75",
-        "alias": ["Apulia"]
+        "alias": [
+          "Apulia"
+        ]
       },
       {
         "name": "Toscana",
         "alpha-2": "52",
-        "alias": ["Tuscany"]
+        "alias": [
+          "Tuscany"
+        ]
       },
       {
         "name": "Umbria",
@@ -2125,7 +2206,9 @@
         "name": "Valle d'Aosta",
         "alpha-2": "23",
         "alias": [
-          "Val d'Aoste", "Aosta Valley", "Aosta"
+          "Val d'Aoste",
+          "Aosta Valley",
+          "Aosta"
         ]
       }
     ]
@@ -2145,7 +2228,9 @@
   },
   {
     "name": "Jersey",
-    "alias": ["Channel Islands"],
+    "alias": [
+      "Channel Islands"
+    ],
     "alpha-2": "JE",
     "alpha-3": "JEY",
     "country-code": "832",
@@ -2396,7 +2481,8 @@
   {
     "name": "Macao",
     "alias": [
-      "Macau", "Macao SAR"
+      "Macau",
+      "Macao SAR"
     ],
     "alpha-2": "MO",
     "alpha-3": "MAC",
@@ -2556,7 +2642,9 @@
     "name": "Mexico",
     "alpha-2": "MX",
     "alpha-3": "MEX",
-    "alias": ["México"],
+    "alias": [
+      "México"
+    ],
     "country-code": "484",
     "iso_3166-2": "ISO 3166-2:MX",
     "region": "Americas",
@@ -2597,7 +2685,9 @@
       {
         "name": "Coahuila",
         "alpha-3": "COA",
-        "alias": ["Coahuila de Zaragoza"]
+        "alias": [
+          "Coahuila de Zaragoza"
+        ]
       },
       {
         "name": "Colima",
@@ -2626,7 +2716,11 @@
       {
         "name": "Michoacán",
         "alpha-3": "MIC",
-        "alias": ["Michoacan", "Michoacán de Ocampo", "Michoacan de Ocampo"]
+        "alias": [
+          "Michoacan",
+          "Michoacán de Ocampo",
+          "Michoacan de Ocampo"
+        ]
       },
       {
         "name": "Morelos",
@@ -2635,12 +2729,17 @@
       {
         "name": "México",
         "alpha-3": "MEX",
-        "alias": ["Mexico"]
+        "alias": [
+          "Mexico"
+        ]
       },
       {
         "name": "Ciudad de México",
         "alpha-3": "CMX",
-        "alias": ["Ciudad de Mexico", "Ciudad"]
+        "alias": [
+          "Ciudad de Mexico",
+          "Ciudad"
+        ]
       },
       {
         "name": "Nayarit",
@@ -2649,7 +2748,9 @@
       {
         "name": "Nuevo León",
         "alpha-3": "NLE",
-        "alias": ["Nuevo Leon"]
+        "alias": [
+          "Nuevo Leon"
+        ]
       },
       {
         "name": "Oaxaca",
@@ -2662,7 +2763,9 @@
       {
         "name": "Querétaro",
         "alpha-3": "QUE",
-        "alias": ["Queretaro"]
+        "alias": [
+          "Queretaro"
+        ]
       },
       {
         "name": "Quintana Roo",
@@ -2671,7 +2774,9 @@
       {
         "name": "San Luis Potosí",
         "alpha-3": "SLP",
-        "alias": ["San Luis Potosi"]
+        "alias": [
+          "San Luis Potosi"
+        ]
       },
       {
         "name": "Sinaloa",
@@ -2696,12 +2801,16 @@
       {
         "name": "Veracruz",
         "alpha-3": "VER",
-        "alias": ["Veracruz de Ignacio de la Llave"]
+        "alias": [
+          "Veracruz de Ignacio de la Llave"
+        ]
       },
       {
         "name": "Yucatán",
         "alpha-3": "YUC",
-        "alias": ["Yucatan"]
+        "alias": [
+          "Yucatan"
+        ]
       },
       {
         "name": "Zacatecas",
@@ -2880,7 +2989,12 @@
     "name": "Netherlands",
     "alpha-2": "NL",
     "alpha-3": "NLD",
-    "alias": ["Nederland", "The Netherlands", "NED", "Holland"],
+    "alias": [
+      "Nederland",
+      "The Netherlands",
+      "NED",
+      "Holland"
+    ],
     "country-code": "528",
     "iso_3166-2": "ISO 3166-2:NL",
     "region": "Europe",
@@ -3120,19 +3234,6 @@
     "intermediate-region-code": ""
   },
   {
-    "name": "Pakistan",
-    "alpha-2": "PK",
-    "alpha-3": "PAK",
-    "country-code": "586",
-    "iso_3166-2": "ISO 3166-2:PK",
-    "region": "Asia",
-    "sub-region": "Southern Asia",
-    "intermediate-region": "",
-    "region-code": "142",
-    "sub-region-code": "034",
-    "intermediate-region-code": ""
-  },
-  {
     "name": "Palau",
     "alpha-2": "PW",
     "alpha-3": "PLW",
@@ -3283,7 +3384,9 @@
   },
   {
     "name": "Réunion",
-    "alias": ["Reunion"],
+    "alias": [
+      "Reunion"
+    ],
     "alpha-2": "RE",
     "alpha-3": "REU",
     "country-code": "638",
@@ -3323,7 +3426,9 @@
   },
   {
     "name": "Saint Barthélemy",
-    "alias": ["Saint Barthelemy"],
+    "alias": [
+      "Saint Barthelemy"
+    ],
     "alpha-2": "BL",
     "alpha-3": "BLM",
     "country-code": "652",
@@ -3376,7 +3481,11 @@
   },
   {
     "name": "Saint Martin",
-    "alias": ["Saint Martin (French part)", "St Martin", "St. Martin"],
+    "alias": [
+      "Saint Martin (French part)",
+      "St Martin",
+      "St. Martin"
+    ],
     "alpha-2": "MF",
     "alpha-3": "MAF",
     "country-code": "663",
@@ -3535,7 +3644,9 @@
   },
   {
     "name": "Sint Maarten",
-    "alias": ["Sint Maarten (Dutch part)"],
+    "alias": [
+      "Sint Maarten (Dutch part)"
+    ],
     "alpha-2": "SX",
     "alpha-3": "SXM",
     "country-code": "534",
@@ -3670,7 +3781,10 @@
         "name": "Asturias",
         "alpha-2": "AS",
         "alias": [
-          "Principality of Asturias", "Asturias, Principado de", "Principado de Asturias", "Asturias, Principality of"
+          "Principality of Asturias",
+          "Asturias, Principado de",
+          "Principado de Asturias",
+          "Asturias, Principality of"
         ]
       },
       {
@@ -3688,21 +3802,25 @@
         "name": "Castilla y León",
         "alpha-2": "CL",
         "alias": [
-          "Castile and León", "Castile and Leon", "Castilla y Leon"
+          "Castile and León",
+          "Castile and Leon",
+          "Castilla y Leon"
         ]
       },
       {
         "name": "Castilla-La Mancha",
         "alpha-2": "CM",
         "alias": [
-          "Castile-La Mancha", "Castilla - La Mancha"
+          "Castile-La Mancha",
+          "Castilla - La Mancha"
         ]
       },
       {
         "name": "Catalunya",
         "alpha-2": "CT",
         "alias": [
-          "Cataluña", "Catalonia"
+          "Cataluña",
+          "Catalonia"
         ]
       },
       {
@@ -3721,7 +3839,9 @@
         "name": "Illes Balears",
         "alpha-2": "IB",
         "alias": [
-          "Islas Baleares", "Balearic Islands", "Baleares"
+          "Islas Baleares",
+          "Balearic Islands",
+          "Baleares"
         ]
       },
       {
@@ -3732,7 +3852,10 @@
         "name": "Madrid",
         "alpha-2": "MD",
         "alias": [
-          "Madrid, Comunidad de", "Comunidad de Madrid", "Community of Madrid",  "Madrid, Community of"
+          "Madrid, Comunidad de",
+          "Comunidad de Madrid",
+          "Community of Madrid",
+          "Madrid, Community of"
         ]
       },
       {
@@ -3743,7 +3866,10 @@
         "name": "Murcia",
         "alpha-2": "MC",
         "alias": [
-          "Murcia, Región de", "Región de Murcia","Region of Murcia", "Murcia, Region of"
+          "Murcia, Región de",
+          "Región de Murcia",
+          "Region of Murcia",
+          "Murcia, Region of"
         ]
       },
       {
@@ -3926,7 +4052,9 @@
   },
   {
     "name": "Timor-Leste",
-    "alias": ["East Timor"],
+    "alias": [
+      "East Timor"
+    ],
     "alpha-2": "TL",
     "alpha-3": "TLS",
     "country-code": "626",
@@ -4082,283 +4210,6 @@
     "intermediate-region-code": ""
   },
   {
-    "name": "United Kingdom of Great Britain and Northern Ireland",
-    "alias": [
-      "United Kingdom",
-      "UK",
-      "North Ireland"
-    ],
-    "alpha-2": "GB",
-    "alpha-3": "GBR",
-    "country-code": "826",
-    "iso_3166-2": "ISO 3166-2:GB",
-    "region": "Europe",
-    "sub-region": "Northern Europe",
-    "intermediate-region": "",
-    "region-code": "150",
-    "sub-region-code": "154",
-    "intermediate-region-code": ""
-  },
-  {
-    "name": "United States of America",
-    "alias": [
-      "United States"
-    ],
-    "alpha-2": "US",
-    "alpha-3": "USA",
-    "country-code": "840",
-    "iso_3166-2": "ISO 3166-2:US",
-    "region": "Americas",
-    "sub-region": "Northern America",
-    "intermediate-region": "",
-    "region-code": "019",
-    "sub-region-code": "021",
-    "intermediate-region-code": "",
-    "regions": [
-      {
-        "name": "District of Columbia",
-        "alpha-2": "DC"
-      },
-      {
-        "name": "Alabama",
-        "alpha-2": "AL"
-      },
-      {
-        "name": "Alaska",
-        "alpha-2": "AK"
-      },
-      {
-        "name": "American Samoa",
-        "alpha-2": "AS"
-      },
-      {
-        "name": "Arizona",
-        "alpha-2": "AZ"
-      },
-      {
-        "name": "Arkansas",
-        "alpha-2": "AR"
-      },
-      {
-        "name": "California",
-        "alpha-2": "CA"
-      },
-      {
-        "name": "Colorado",
-        "alpha-2": "CO"
-      },
-      {
-        "name": "Connecticut",
-        "alpha-2": "CT"
-      },
-      {
-        "name": "Delaware",
-        "alpha-2": "DE"
-      },
-      {
-        "name": "District Of Columbia",
-        "alpha-2": "DC"
-      },
-      {
-        "name": "Federated States Of Micronesia",
-        "alpha-2": "FM"
-      },
-      {
-        "name": "Florida",
-        "alpha-2": "FL"
-      },
-      {
-        "name": "Georgia",
-        "alpha-2": "GA"
-      },
-      {
-        "name": "Guam",
-        "alpha-2": "GU"
-      },
-      {
-        "name": "Hawaii",
-        "alpha-2": "HI"
-      },
-      {
-        "name": "Idaho",
-        "alpha-2": "ID"
-      },
-      {
-        "name": "Illinois",
-        "alpha-2": "IL"
-      },
-      {
-        "name": "Indiana",
-        "alpha-2": "IN"
-      },
-      {
-        "name": "Iowa",
-        "alpha-2": "IA"
-      },
-      {
-        "name": "Kansas",
-        "alpha-2": "KS"
-      },
-      {
-        "name": "Kentucky",
-        "alpha-2": "KY"
-      },
-      {
-        "name": "Louisiana",
-        "alpha-2": "LA"
-      },
-      {
-        "name": "Maine",
-        "alpha-2": "ME"
-      },
-      {
-        "name": "Marshall Islands",
-        "alpha-2": "MH"
-      },
-      {
-        "name": "Maryland",
-        "alpha-2": "MD"
-      },
-      {
-        "name": "Massachusetts",
-        "alpha-2": "MA"
-      },
-      {
-        "name": "Michigan",
-        "alpha-2": "MI"
-      },
-      {
-        "name": "Minnesota",
-        "alpha-2": "MN"
-      },
-      {
-        "name": "Mississippi",
-        "alpha-2": "MS"
-      },
-      {
-        "name": "Missouri",
-        "alpha-2": "MO"
-      },
-      {
-        "name": "Montana",
-        "alpha-2": "MT"
-      },
-      {
-        "name": "Nebraska",
-        "alpha-2": "NE"
-      },
-      {
-        "name": "Nevada",
-        "alpha-2": "NV"
-      },
-      {
-        "name": "New Hampshire",
-        "alpha-2": "NH"
-      },
-      {
-        "name": "New Jersey",
-        "alpha-2": "NJ"
-      },
-      {
-        "name": "New Mexico",
-        "alpha-2": "NM"
-      },
-      {
-        "name": "New York",
-        "alpha-2": "NY"
-      },
-      {
-        "name": "North Carolina",
-        "alpha-2": "NC"
-      },
-      {
-        "name": "North Dakota",
-        "alpha-2": "ND"
-      },
-      {
-        "name": "Northern Mariana Islands",
-        "alpha-2": "MP"
-      },
-      {
-        "name": "Ohio",
-        "alpha-2": "OH"
-      },
-      {
-        "name": "Oklahoma",
-        "alpha-2": "OK"
-      },
-      {
-        "name": "Oregon",
-        "alpha-2": "OR"
-      },
-      {
-        "name": "Palau",
-        "alpha-2": "PW"
-      },
-      {
-        "name": "Pennsylvania",
-        "alpha-2": "PA"
-      },
-      {
-        "name": "Puerto Rico",
-        "alpha-2": "PR"
-      },
-      {
-        "name": "Rhode Island",
-        "alpha-2": "RI"
-      },
-      {
-        "name": "South Carolina",
-        "alpha-2": "SC"
-      },
-      {
-        "name": "South Dakota",
-        "alpha-2": "SD"
-      },
-      {
-        "name": "Tennessee",
-        "alpha-2": "TN"
-      },
-      {
-        "name": "Texas",
-        "alpha-2": "TX"
-      },
-      {
-        "name": "Utah",
-        "alpha-2": "UT"
-      },
-      {
-        "name": "Vermont",
-        "alpha-2": "VT"
-      },
-      {
-        "name": "Virgin Islands",
-        "alias": ["United States Virgin Islands", "Virgin Islands, U.S."],
-        "alpha-2": "VI"
-      },
-      {
-        "name": "Virginia",
-        "alpha-2": "VA"
-      },
-      {
-        "name": "Washington",
-        "alpha-2": "WA"
-      },
-      {
-        "name": "West Virginia",
-        "alpha-2": "WV"
-      },
-      {
-        "name": "Wisconsin",
-        "alpha-2": "WI"
-      },
-      {
-        "name": "Wyoming",
-        "alpha-2": "WY"
-      }
-    ]
-  },
-  {
     "name": "United States Minor Outlying Islands",
     "alpha-2": "UM",
     "alpha-3": "UMI",
@@ -4445,7 +4296,10 @@
   },
   {
     "name": "British Virgin Islands",
-    "alias": ["Virgin Island (British)", "BVI"],
+    "alias": [
+      "Virgin Island (British)",
+      "BVI"
+    ],
     "alpha-2": "VG",
     "alpha-3": "VGB",
     "country-code": "092",
@@ -4459,7 +4313,9 @@
   },
   {
     "name": "Virgin Islands (U.S.)",
-    "alias": ["US Virgin Islands"],
+    "alias": [
+      "US Virgin Islands"
+    ],
     "alpha-2": "VI",
     "alpha-3": "VIR",
     "country-code": "850",

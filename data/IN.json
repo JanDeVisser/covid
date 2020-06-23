@@ -1,0 +1,167 @@
+{
+    "name": "India",
+    "alpha-2": "IN",
+    "alpha-3": "IND",
+    "country-code": "356",
+    "iso_3166-2": "ISO 3166-2:IN",
+    "region": "Asia",
+    "sub-region": "Southern Asia",
+    "intermediate-region": "",
+    "region-code": "142",
+    "sub-region-code": "034",
+    "intermediate-region-code": "",
+    "regions": [
+        {
+            "name": "Andhra Pradesh",
+            "alpha-2": "AP"
+        },
+        {
+            "name": "Arunachal Pradesh",
+            "alpha-2": "AR"
+        },
+        {
+            "name": "Assam",
+            "alpha-2": "AS"
+        },
+        {
+            "name": "Bihar",
+            "alpha-2": "BR"
+        },
+        {
+            "name": "Chhattisgarh",
+            "alpha-2": "CT"
+        },
+        {
+            "name": "Goa",
+            "alpha-2": "GA"
+        },
+        {
+            "name": "Gujarat",
+            "alpha-2": "GJ"
+        },
+        {
+            "name": "Haryana",
+            "alpha-2": "HR"
+        },
+        {
+            "name": "Himachal Pradesh",
+            "alpha-2": "HP"
+        },
+        {
+            "name": "Jharkhand",
+            "alpha-2": "JH"
+        },
+        {
+            "name": "Karnataka",
+            "alpha-2": "KA"
+        },
+        {
+            "name": "Kerala",
+            "alpha-2": "KL"
+        },
+        {
+            "name": "Madhya Pradesh",
+            "alpha-2": "MP"
+        },
+        {
+            "name": "Maharashtra",
+            "alpha-2": "MH"
+        },
+        {
+            "name": "Manipur",
+            "alpha-2": "MN"
+        },
+        {
+            "name": "Meghalaya",
+            "alpha-2": "ML"
+        },
+        {
+            "name": "Mizoram",
+            "alpha-2": "MZ"
+        },
+        {
+            "name": "Nagaland",
+            "alpha-2": "NL"
+        },
+        {
+            "name": "Odisha",
+            "alpha-2": "OR"
+        },
+        {
+            "name": "Punjab",
+            "alpha-2": "PB"
+        },
+        {
+            "name": "Rajasthan",
+            "alpha-2": "RJ"
+        },
+        {
+            "name": "Sikkim",
+            "alpha-2": "SK"
+        },
+        {
+            "name": "Tamil Nadu",
+            "alpha-2": "TN"
+        },
+        {
+            "name": "Telangana",
+            "alpha-2": "TG"
+        },
+        {
+            "name": "Tripura",
+            "alpha-2": "TR"
+        },
+        {
+            "name": "Uttarakhand",
+            "alpha-2": "UT"
+        },
+        {
+            "name": "Uttar Pradesh",
+            "alpha-2": "UP"
+        },
+        {
+            "name": "West Bengal",
+            "alpha-2": "WB"
+        },
+        {
+            "name": "Andaman and Nicobar Islands",
+            "alpha-2": "AN"
+        },
+        {
+            "name": "Chandigarh",
+            "alpha-2": "CH"
+        },
+        {
+            "name": "Dadra and Nagar Haveli",
+            "alpha-2": "DN",
+            "alias": [ "Dadar Nagar Haveli", "Dadra and Nagar Haveli and Daman and Diu" ]
+        },
+        {
+            "name": "Daman and Diu",
+            "alpha-2": "DD"
+        },
+        {
+            "name": "Delhi",
+            "alpha-2": "DL"
+        },
+        {
+            "name": "Jammu and Kashmir",
+            "alpha-2": "JK"
+        },
+        {
+            "name": "Ladakh",
+            "alpha-2": "LA"
+        },
+        {
+            "name": "Lakshadweep",
+            "alpha-2": "LD"
+        },
+        {
+            "name": "Puducherry",
+            "alpha-2": "PY",
+            "alias": [
+                "Pondicherry"
+            ]
+        }
+    ]
+}

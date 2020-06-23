@@ -1,0 +1,37 @@
+{
+    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "alias": [
+        "United Kingdom",
+        "UK",
+        "North Ireland"
+    ],
+    "alpha-2": "GB",
+    "alpha-3": "GBR",
+    "country-code": "826",
+    "iso_3166-2": "ISO 3166-2:GB",
+    "region": "Europe",
+    "sub-region": "Northern Europe",
+    "intermediate-region": "",
+    "region-code": "150",
+    "sub-region-code": "154",
+    "intermediate-region-code": "",
+    "regions": [
+        {
+            "name": "England",
+            "alpha-3": "ENG"
+        },
+        {
+            "name": "Northern Ireland",
+            "alpha-3": "NIR"
+        },
+        {
+            "name": "Scotland",
+            "alpha-3": "SCT"
+        },
+        {
+            "name": "Wales",
+            "alpha-3": "WLS",
+            "alias": [ "Cymru" ]
+        }
+    ]
+}

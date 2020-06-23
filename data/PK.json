@@ -1,0 +1,62 @@
+{
+    "name": "Pakistan",
+    "alpha-2": "PK",
+    "alpha-3": "PAK",
+    "country-code": "586",
+    "iso_3166-2": "ISO 3166-2:PK",
+    "region": "Asia",
+    "sub-region": "Southern Asia",
+    "intermediate-region": "",
+    "region-code": "142",
+    "sub-region-code": "034",
+    "intermediate-region-code": "",
+    "regions": [
+        {
+            "name": "Islamabad",
+            "alpha-2": "IS",
+            "alias": [
+                "Islāmābād"
+            ]
+        },
+        {
+            "name": "Balochistan",
+            "alpha-2": "BA",
+            "alias": [
+                "Balōchistān"
+            ]
+        },
+        {
+            "name": "Khyber Pakhtunkhwa",
+            "alpha-2": "KP",
+            "alias": [
+                "Khaībar Pakhtūnkhwā"
+            ]
+        },
+        {
+            "name": "Punjab",
+            "alpha-2": "PB",
+            "alias": [
+                "Panjāb"
+            ]
+        },
+        {
+            "name": "Sindh",
+            "alpha-2": "SD"
+        },
+        {
+            "name": "Azad Jammu and Kashmir",
+            "alpha-2": "JK",
+            "alias": [
+                "AJ&K",
+                "Āzād Jammūñ o Kashmīr"
+            ]
+        },
+        {
+            "name": "Gilgit-Baltistan",
+            "alpha-2": "GB",
+            "alias": [
+                "Gilgit-Baltistān"
+            ]
+        }
+    ]
+}
