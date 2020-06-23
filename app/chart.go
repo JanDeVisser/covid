@@ -27,6 +27,7 @@ import (
 	"github.com/wcharczuk/go-chart/drawing"
 	"log"
 	"net/http"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -40,7 +41,20 @@ type DataPoint struct {
 	Deceased    int
 }
 
+type CasesChartSeries struct {
+	DataSeries *DataSeries
+	Which      int
+	ChartType  string
+	Regression bool
+	Window     []float64
+	Data       []float64
+	Current    int
+	New        int
+	WindowPtr  int
+}
+
 type DataSeries struct {
+	ChartData    *CasesChartData
 	Jurisdiction *Jurisdiction
 	Color        drawing.Color
 	First        time.Time
@@ -49,14 +63,18 @@ type DataSeries struct {
 	Cases        int
 	Deaths       int
 	DataPoints   []*DataPoint
+
+	ConfirmedData *CasesChartSeries
+	DeceasedData  *CasesChartSeries
 }
 
 const (
-	ChartTypeAbsolute  = "ABS"
-	ChartTypeRelative  = "REL"
-	ChartTypeDaily     = "DAILY"
-	ChartTypeSuppress  = "NONE"
-	ChartTypeMortality = "MORTALITY"
+	ChartTypeAbsolute   = "ABS"
+	ChartTypeRelative   = "REL"
+	ChartTypeDaily      = "DAILY"
+	ChartTypeRollingAvg = "ROLLING"
+	ChartTypeSuppress   = "SUPPRESS"
+	ChartTypeMortality  = "MORTALITY"
 )
 
 const (
@@ -64,22 +82,17 @@ const (
 	ChartDataDeaths = 1
 )
 
-type CasesChartSeries struct {
-	ChartType  string
-	Regression bool
-	Data       []float64
-	Current    int
-	New        int
-}
-
 type CasesChartData struct {
-	Manager       *grumble.EntityManager
-	Query         *grumble.Query
-	Country       *Jurisdiction
-	Jurisdictions []grumble.Persistable
-	Regions       []grumble.Persistable
-	Exclude       []grumble.Persistable
-	Aggregate     bool
+	Manager         *grumble.EntityManager
+	Query           *grumble.Query
+	Country         *Jurisdiction
+	Jurisdictions   []grumble.Persistable
+	Regions         []grumble.Persistable
+	Exclude         []grumble.Persistable
+	Aggregate       bool
+	ChartTypeCases  string
+	ChartTypeDeaths string
+	Regression      bool
 
 	Results     [][]grumble.Persistable
 	Series      map[string]*DataSeries
@@ -87,7 +100,6 @@ type CasesChartData struct {
 	Last        time.Time
 	Days        int
 	Population  float64
-	Data        [2]CasesChartSeries
 	ChartSeries []chart.Series
 }
 
@@ -121,6 +133,57 @@ var Colors = []drawing.Color{
 //	TextLineSpacing:     0,
 //	TextRotationDegrees: 0,
 //}
+
+func MakeDataSeries(data *CasesChartData, jurisdiction *Jurisdiction, color drawing.Color, first *Sample) (series *DataSeries) {
+	name := "Global"
+	if jurisdiction != nil {
+		name = jurisdiction.Name
+	}
+	series = new(DataSeries)
+	series.ChartData = data
+	series.Jurisdiction = jurisdiction
+	series.Color = color
+	series.First = first.Date
+	series.Current = nil
+	series.DataPoints = make([]*DataPoint, 0)
+	data.Series[name] = series
+
+	series.ConfirmedData = MakeCasesChartSeries(series, ChartDataCases, series.ChartData.ChartTypeCases, series.ChartData.Regression)
+	series.DeceasedData = MakeCasesChartSeries(series, ChartDataDeaths, series.ChartData.ChartTypeDeaths, series.ChartData.Regression)
+
+	return
+}
+
+func (series *DataSeries) AppendSample(sample *Sample) {
+	if series.Current == nil || series.Current.Date.Before(sample.Date) {
+		if series.Current != nil {
+			series.Current.NewCount = series.Current.Count - series.Cases
+			series.Current.NewDeceased = series.Current.Deceased - series.Deaths
+			series.Cases = series.Current.Count
+			series.Deaths = series.Current.Deceased
+		}
+		series.Last = sample.Date
+		series.Current = new(DataPoint)
+		series.Current.Date = sample.Date
+		series.DataPoints = append(series.DataPoints, series.Current)
+	}
+	series.Current.Count += sample.Confirmed
+	series.Current.Deceased += sample.Deceased
+}
+
+func (data *CasesChartData) GetDataSeries(jurisdiction *Jurisdiction, first *Sample) (series *DataSeries) {
+	name := "Global"
+	if jurisdiction != nil {
+		name = jurisdiction.Name
+	}
+	var ok bool
+	series, ok = data.Series[name]
+	if !ok {
+		series = MakeDataSeries(data, jurisdiction, Colors[len(data.Series)%len(Colors)], first)
+		data.Series[name] = series
+	}
+	return
+}
 
 func MakeCasesChartData(req *http.Request) (ret *CasesChartData, err error) {
 	ret = new(CasesChartData)
@@ -205,19 +268,19 @@ func MakeCasesChartData(req *http.Request) (ret *CasesChartData, err error) {
 	}
 	ret.Query = ret.Manager.MakeQuery(Sample{})
 
-	ret.Data[ChartDataCases].ChartType = ChartTypeAbsolute
+	ret.ChartTypeCases = ChartTypeAbsolute
 	if req.FormValue("cases") != "" {
-		ret.Data[ChartDataCases].ChartType = req.FormValue("cases")
+		ret.ChartTypeCases = req.FormValue("cases")
 	}
-	ret.Data[ChartDataDeaths].ChartType = ret.Data[ChartDataCases].ChartType
+	ret.ChartTypeDeaths = ret.ChartTypeCases
 	if req.FormValue("deaths") != "" {
-		ret.Data[ChartDataDeaths].ChartType = req.FormValue("deaths")
+		ret.ChartTypeDeaths = req.FormValue("deaths")
 	}
-	ret.Data[ChartDataCases].Regression = false
-	if ret.Data[ChartDataCases].ChartType == ChartTypeDaily {
-		ret.Data[ChartDataDeaths].ChartType = ChartTypeDaily
+	ret.Regression = false
+	if (ret.ChartTypeCases == ChartTypeDaily) || (ret.ChartTypeCases == ChartTypeRollingAvg) {
+		ret.ChartTypeDeaths = ret.ChartTypeCases
 		if req.FormValue("regression") != "" {
-			ret.Data[ChartDataCases].Regression, _ = strconv.ParseBool(req.FormValue("regression"))
+			ret.Regression, _ = strconv.ParseBool(req.FormValue("regression"))
 		}
 	}
 	return
@@ -286,7 +349,6 @@ func (data *CasesChartData) ExecuteQuery() (err error) {
 
 func (data *CasesChartData) BuildSeries() (err error) {
 	data.Series = make(map[string]*DataSeries, 0)
-	colix := 0
 	for _, row := range data.Results {
 		sample := row[0].(*Sample)
 		if data.First.Year() < 2019 {
@@ -295,43 +357,14 @@ func (data *CasesChartData) BuildSeries() (err error) {
 		data.Last = sample.Date
 		var jurisdiction *Jurisdiction
 		var series *DataSeries
-		var ok bool
-		var name string
 		switch {
 		case len(data.Regions) > 0:
 			jurisdiction = data.Jurisdictions[0].(*Jurisdiction)
-			name = jurisdiction.Name
 		case len(data.Jurisdictions) > 0:
 			jurisdiction = row[1].(*Jurisdiction)
-			name = jurisdiction.Name
-		default:
-			name = "Global"
 		}
-		series, ok = data.Series[name]
-		if !ok {
-			series = new(DataSeries)
-			series.Jurisdiction = jurisdiction
-			series.Color = Colors[colix]
-			colix++
-			series.First = sample.Date
-			series.Current = nil
-			series.DataPoints = make([]*DataPoint, 0)
-			data.Series[name] = series
-		}
-		if series.Current == nil || series.Current.Date.Before(sample.Date) {
-			if series.Current != nil {
-				series.Current.NewCount = series.Current.Count - series.Cases
-				series.Current.NewDeceased = series.Current.Deceased - series.Deaths
-				series.Cases = series.Current.Count
-				series.Deaths = series.Current.Deceased
-			}
-			series.Last = sample.Date
-			series.Current = new(DataPoint)
-			series.Current.Date = sample.Date
-			series.DataPoints = append(series.DataPoints, series.Current)
-		}
-		series.Current.Count += sample.Confirmed
-		series.Current.Deceased += sample.Deceased
+		series = data.GetDataSeries(jurisdiction, sample)
+		series.AppendSample(sample)
 	}
 	for _, series := range data.Series {
 		if series.Current != nil {
@@ -344,49 +377,86 @@ func (data *CasesChartData) BuildSeries() (err error) {
 	return
 }
 
+func MakeCasesChartSeries(series *DataSeries, which int, chartType string, regression bool) (chartSeries *CasesChartSeries) {
+	chartSeries = new(CasesChartSeries)
+	chartSeries.Data = nil
+	chartSeries.Current = 0
+	chartSeries.New = 0
+	chartSeries.Window = make([]float64, 7)
+	chartSeries.WindowPtr = 0
+	chartSeries.DataSeries = series
+	chartSeries.Which = which
+	chartSeries.ChartType = chartType
+	chartSeries.Regression = regression
+	return chartSeries
+}
+
 var subject = []string{"Confirmed", "Deceased"}
 
-func (data *CasesChartData) label(which int, code string) string {
-	switch data.Data[which].ChartType {
+func (series *CasesChartSeries) Label(code string) string {
+	switch series.ChartType {
 	case ChartTypeRelative:
-		return fmt.Sprintf("#%s/mio %s", subject[which], code)
+		return fmt.Sprintf("#%s/mio %s", subject[series.Which], code)
 	case ChartTypeSuppress:
 		return ""
 	case ChartTypeDaily:
-		return fmt.Sprintf("#Newly %s %s", subject[which], code)
+		return fmt.Sprintf("#Newly %s %s", subject[series.Which], code)
+	case ChartTypeRollingAvg:
+		return fmt.Sprintf("7 day rolling avg #newly %s %s", subject[series.Which], code)
 	default:
-		return fmt.Sprintf("#%s %s", subject[which], code)
+		return fmt.Sprintf("#%s %s", subject[series.Which], code)
 	}
 }
 
-func (data *CasesChartData) append(ix int) {
-	for which := ChartDataCases; which <= ChartDataDeaths; which++ {
-		d := data.Data[which]
-		switch d.ChartType {
-		case ChartTypeRelative:
-			d.Data[ix] = float64(d.Current) / (data.Population / 1e6)
-		case ChartTypeDaily:
-			d.Data[ix] = float64(d.New)
-		case ChartTypeSuppress:
-			break
-		case ChartTypeMortality:
-			if d.Current > 0 {
-				d.Data[ix] = float64(d.Current) / float64(data.Data[ChartDataCases].Current)
-			} else {
-				d.Data[ix] = 0.0
+func (series *CasesChartSeries) Append(ix int) {
+	if series.Data == nil {
+		series.Data = make([]float64, series.DataSeries.ChartData.Days)
+	}
+	switch series.ChartType {
+	case ChartTypeRelative:
+		series.Data[ix] = float64(series.Current) / (series.DataSeries.ChartData.Population / 1e6)
+	case ChartTypeDaily:
+		series.Data[ix] = float64(series.New)
+	case ChartTypeRollingAvg:
+		if series.WindowPtr < 6 {
+			series.Data[ix] = 0.0
+			series.Window[series.WindowPtr] = float64(series.New)
+			series.WindowPtr += 1
+		} else {
+			sum := float64(series.New)
+			for wix := 0; wix < 6; wix++ {
+				sum += series.Window[wix]
+				if wix > 0 {
+					series.Window[wix-1] = series.Window[wix]
+				}
 			}
-		default:
-			d.Data[ix] = float64(d.Current)
+			series.Window[series.WindowPtr] = float64(series.New)
+			series.Data[ix] = sum / 7.0
 		}
+	case ChartTypeSuppress:
+		break
+	case ChartTypeMortality:
+		if series.Current > 0 {
+			series.Data[ix] = float64(series.Current) / float64(series.DataSeries.ConfirmedData.Current)
+		} else {
+			series.Data[ix] = 0.0
+		}
+	default:
+		series.Data[ix] = float64(series.Current)
 	}
 }
 
 func (data *CasesChartData) BuildChart() (err error) {
 	data.ChartSeries = make([]chart.Series, 0)
+	sortedSeries := make([]*DataSeries, 0)
 	for _, series := range data.Series {
+		sortedSeries = append(sortedSeries, series)
+	}
+	sort.Slice(sortedSeries, func(i, j int) bool {
+		return sortedSeries[i].Current.Count > sortedSeries[j].Current.Count
+	})
+	for _, series := range sortedSeries {
 		dateSeries := make([]time.Time, data.Days)
-		data.Data[ChartDataCases].Data = make([]float64, data.Days)
-		data.Data[ChartDataDeaths].Data = make([]float64, data.Days)
 		data.Population = 7.8e9
 		if series.Jurisdiction != nil {
 			data.Population = float64(series.Jurisdiction.Population)
@@ -398,39 +468,36 @@ func (data *CasesChartData) BuildChart() (err error) {
 				code = series.Jurisdiction.Alpha2
 			}
 		}
-		caseLabel := data.label(ChartDataCases, code)
-		deathsLabel := data.label(ChartDataDeaths, code)
-		data.Data[ChartDataCases].Current = 0
-		data.Data[ChartDataCases].New = 0
-		data.Data[ChartDataDeaths].Current = 0
-		data.Data[ChartDataDeaths].New = 0
+		caseLabel := series.ConfirmedData.Label(code)
+		deathsLabel := series.DeceasedData.Label(code)
 		seriesIx := 0
 		for d, ix := data.First, 0; d.Before(data.Last); d, ix = d.AddDate(0, 0, 1), ix+1 {
 			dateSeries[ix] = d
 			if !d.Before(series.DataPoints[seriesIx].Date) {
-				data.Data[ChartDataCases].Current = series.DataPoints[seriesIx].Count
-				data.Data[ChartDataCases].New = series.DataPoints[seriesIx].NewCount
-				data.Data[ChartDataDeaths].Current = series.DataPoints[seriesIx].Deceased
-				data.Data[ChartDataDeaths].New = series.DataPoints[seriesIx].NewDeceased
+				series.ConfirmedData.Current = series.DataPoints[seriesIx].Count
+				series.ConfirmedData.New = series.DataPoints[seriesIx].NewCount
+				series.DeceasedData.Current = series.DataPoints[seriesIx].Deceased
+				series.DeceasedData.New = series.DataPoints[seriesIx].NewDeceased
 				seriesIx++
 			} else {
-				data.Data[ChartDataCases].New = 0
-				data.Data[ChartDataDeaths].New = 0
+				series.ConfirmedData.New = 0
+				series.DeceasedData.New = 0
 			}
-			data.append(ix)
+			series.ConfirmedData.Append(ix)
+			series.DeceasedData.Append(ix)
 		}
-		if data.Data[ChartDataCases].ChartType != ChartTypeSuppress {
+		if series.ConfirmedData.ChartType != ChartTypeSuppress {
 			confirmedTimeSeries := chart.TimeSeries{
 				Name: caseLabel,
 				Style: chart.Style{
 					StrokeColor: series.Color,
 				},
 				XValues: dateSeries,
-				YValues: data.Data[ChartDataCases].Data,
+				YValues: series.ConfirmedData.Data,
 			}
 			data.ChartSeries = append(data.ChartSeries, confirmedTimeSeries)
 
-			if data.Data[ChartDataCases].Regression {
+			if series.ConfirmedData.Regression {
 				data.ChartSeries = append(data.ChartSeries, &chart.PolynomialRegressionSeries{
 					Name: "Regression " + code,
 					Style: chart.Style{
@@ -442,10 +509,10 @@ func (data *CasesChartData) BuildChart() (err error) {
 				})
 			}
 		}
-		if data.Data[ChartDataDeaths].ChartType != ChartTypeSuppress {
+		if series.DeceasedData.ChartType != ChartTypeSuppress {
 			yAxis := chart.YAxisPrimary
 			var strokeDashArray []float64 = nil
-			if data.Data[ChartDataCases].ChartType != ChartTypeSuppress {
+			if series.ConfirmedData.ChartType != ChartTypeSuppress {
 				yAxis = chart.YAxisSecondary
 				strokeDashArray = []float64{5.0, 5.0}
 			}
@@ -457,7 +524,7 @@ func (data *CasesChartData) BuildChart() (err error) {
 				},
 				YAxis:   yAxis,
 				XValues: dateSeries,
-				YValues: data.Data[ChartDataDeaths].Data,
+				YValues: series.DeceasedData.Data,
 			}
 			data.ChartSeries = append(data.ChartSeries, deceasedTimeSeries)
 		}
