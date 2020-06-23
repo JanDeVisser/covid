@@ -30,12 +30,12 @@
                     const cases = document.getElementById("numberCases");
                     const deaths = document.getElementById("numberDeaths");
                     const regression = document.getElementById("regression");
-                    if (cases.value === "DAILY") {
-                        deaths.value = "DAILY"
+                    if (cases.value === "DAILY" || cases.value === "ROLLING") {
+                        deaths.value = cases.value
                         deaths.disabled = true
                         regression.disabled = false
                     } else {
-                        if (deaths.value === "DAILY") {
+                        if (deaths.value === "DAILY" || deaths.value === "ROLLING") {
                             deaths.value = "ABS"
                         }
                         deaths.disabled = false
@@ -56,8 +56,8 @@
                     <div class="form-group">
                         <label for="numberCases">#Cases</label>
                         <select name="cases" class="form-control" id="numberCases" onchange="casesSelectChange();">
-                            {{$casesValues := makeslice "ABS" "REL" "DAILY" "NONE"}}
-                            {{$casesTexts := makeslice "Total Number" "Cases per Million" "Daily new cases" "Don't show"}}
+                            {{$casesValues := makeslice "ABS" "REL" "DAILY" "ROLLING" "NONE"}}
+                            {{$casesTexts := makeslice "Total Number" "Cases per Million" "Daily new cases" "Daily new rolling avg" "Don't show"}}
                             {{range $ix, $value := $casesValues}}
                                 <option value={{$value}}
                                         {{if eq $.Cases $value}}selected{{end}}
@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="numberDeaths">#Deceased</label>
                         <select name="deaths" class="form-control" id="numberDeaths"
-                                {{if eq .Cases "DAILY"}}disabled{{end}}
+                                {{if or (eq .Cases "DAILY") (eq .Cases "ROLLING")}}disabled{{end}}
                         >
                             {{$deathsValues := makeslice "ABS" "REL" "MORTALITY" "NONE"}}
                             {{$deathsTexts := makeslice "Total Number" "Deaths per Million" "Deaths relative to Cases" "Don't show"}}
@@ -79,12 +79,15 @@
                             {{end}}
                             <option value="DAILY" disabled
                                     {{if eq .Deaths "DAILY"}}selected{{end}}
-                            >Daily new cases</option>
+                            >Daily new deaths</option>
+                            <option value="ROLLING" disabled
+                                    {{if eq .Deaths "ROLLING"}}selected{{end}}
+                            >Daily new deaths rolling avg</option>
                         </select>
                     </div>
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" name="regression" id="regression" value="true"
-                               {{if eq .Cases "DAILY" | not}}disabled{{end}}
+                               {{if or (eq .Cases "DAILY") (eq .Cases "ROLLING") | not}}disabled{{end}}
                                 {{if eq .Regression "true"}}checked{{end}}
                         >
                         <label class="custom-control-label" for="regression">Display 3rd degree polynomial regression</label>
